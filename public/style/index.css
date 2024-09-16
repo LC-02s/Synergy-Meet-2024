@@ -1,0 +1,102 @@
+:root {
+  font-size: 16px;
+
+  --gray-000: #ffffff;
+  --gray-050: #f4f6f8;
+  --gray-100: #dde0e3;
+  --gray-200: #c2c7cc;
+  --gray-300: #a6adb5;
+  --gray-400: #8a949e;
+  --gray-500: #6f7a86;
+  --gray-600: #58616a;
+  --gray-700: #3c4249;
+  --gray-800: #202427;
+  --gray-900: #131517;
+
+  --red-050: #fbe9e9;
+  --red-100: #f8d3d4;
+  --red-200: #f2b0b1;
+  --red-300: #eb8586;
+  --red-400: #e14b4d;
+  --red-500: #d22325;
+  --red-600: #a61c1e;
+  --red-700: #831617;
+  --red-800: #561c1d;
+  --red-900: #3b1617;
+
+  --yellow-050: #fff5e0;
+  --yellow-100: #ffe7b8;
+  --yellow-200: #ffda8f;
+  --yellow-300: #ffbf3d;
+  --yellow-400: #ffab01;
+  --yellow-500: #eb9d00;
+  --yellow-600: #c28200;
+  --yellow-700: #8f6000;
+  --yellow-800: #543d0e;
+  --yellow-900: #3d2c0b;
+
+  --green-050: #e5faf1;
+  --green-100: #b1f1d6;
+  --green-200: #75e6b6;
+  --green-300: #39db97;
+  --green-400: #23be7d;
+  --green-500: #1ea46c;
+  --green-600: #198a5b;
+  --green-700: #15704a;
+  --green-800: #133d2b;
+  --green-900: #0f2e21;
+
+  --blue-050: #e5effa;
+  --blue-100: #c3daf3;
+  --blue-200: #99bfeb;
+  --blue-300: #77aae4;
+  --blue-400: #3b84d8;
+  --blue-500: #256bbb;
+  --blue-600: #1d5391;
+  --blue-700: #163f6f;
+  --blue-800: #233851;
+  --blue-900: #192739;
+
+  --font-size-100: 0.75rem;
+  --font-size-200: 0.875rem;
+  --font-size-300: 1rem;
+  --font-size-400: 1.125rem;
+  --font-size-500: 1.25rem;
+  --font-size-600: 1.5rem;
+  --font-size-700: 1.75rem;
+  --font-size-800: 2rem;
+  --font-size-900: 3rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-extra-bold: 700;
+  --font-weight-black: 900;
+
+  --leading-tight: 100%;
+  --leading-normal: 120%;
+  --leading-relaxed: 160%;
+}
+
+body {
+  color: var(--gray-000);
+  background-color: var(--gray-900);
+}
+
+body.stop-scroll {
+  touch-action: none;
+  overflow: hidden;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  font-size: 2px;
+  white-space: nowrap;
+  clip: rect(1px 1px 1px 1px);
+  outline: none;
+  overflow: hidden;
+}

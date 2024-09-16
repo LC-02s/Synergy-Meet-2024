@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'SCoreDream';
+  font-weight: 900;
+  font-display: swap;
+  src:
+    local('S-Core Dream Black'),
+    url('/font/SCoreDream9.woff2') format('woff2'),
+    url('/font/SCoreDream9.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SCoreDream';
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('S-Core Dream Extra Bold'),
+    url('/font/SCoreDream7.woff2') format('woff2'),
+    url('/font/SCoreDream7.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SCoreDream';
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local('S-Core Dream Medium'),
+    url('/font/SCoreDream5.woff2') format('woff2'),
+    url('/font/SCoreDream5.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SCoreDream';
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('S-Core Dream Regular'),
+    url('/font/SCoreDream4.woff2') format('woff2'),
+    url('/font/SCoreDream4.woff') format('woff');
+}
