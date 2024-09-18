@@ -2,14 +2,15 @@
 *,
 :after,
 :before {
-  border: 0 solid #e5e7eb;
+  border: 0 solid var(--gray-100);
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(180, 190, 200, 0.2);
 }
 :host,
 html {
   -webkit-text-size-adjust: 100%;
   font-feature-settings: normal;
-  -webkit-tap-highlight-color: rgba(180, 190, 200, 0.2);
+  -webkit-tap-highlight-color: transparent;
   font-family:
     SCoreDream,
     ui-sans-serif,
@@ -20,7 +21,7 @@ html {
     Segoe UI Symbol,
     Noto Color Emoji;
   font-variation-settings: normal;
-  line-height: 120%;
+  line-height: var(--leading-normal);
   tab-size: 4;
 }
 body {
@@ -190,7 +191,7 @@ button {
   cursor: pointer;
 }
 :disabled {
-  cursor: default;
+  cursor: not-allowed;
 }
 audio,
 canvas,
