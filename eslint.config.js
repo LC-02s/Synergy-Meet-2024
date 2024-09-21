@@ -27,8 +27,12 @@ export default [
       },
       rules: {
         ...reactHooks.configs.recommended.rules,
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
         'prettier/prettier': 'warn',
+      },
+      settings: {
+        react: { version: 'detect' },
       },
     },
   ),

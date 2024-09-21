@@ -1,14 +1,19 @@
-import React from 'react'
+import { Header } from '@/widget/header'
+import { Intro } from '@/widget/intro'
+import { Footer } from '@/widget/footer'
+import { Global } from '@emotion/react'
+import { globalStyle } from './App.style'
 import Provider from './Provider'
 
 export default function App() {
-  const [count, setCount] = React.useState(0)
-
   return (
-    <Provider>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-      </div>
-    </Provider>
+    <>
+      <Global styles={globalStyle} />
+      <Provider>
+        <Header />
+        <Intro />
+        <Footer />
+      </Provider>
+    </>
   )
 }
