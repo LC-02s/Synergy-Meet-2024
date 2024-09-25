@@ -1,0 +1,5 @@
+export const xs = '(max-width: 20rem)'
+export const sm = '(max-width: 30rem)'
+export const md = '(max-width: 48rem)'
+export const lg = '(max-width: 64rem)'
+export const xl = '(max-width: 80rem)'
