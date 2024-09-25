@@ -24,7 +24,6 @@
     "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.3",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.13.0",
     "compression": "^1.7.4",
     "express": "^4.21.0",
     "framer-motion": "^11.5.5",
