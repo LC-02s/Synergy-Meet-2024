@@ -8,9 +8,7 @@ export const size700 = 'var(--font-size-700)'
 export const size800 = 'var(--font-size-800)'
 export const size900 = 'var(--font-size-900)'
 
-export const weight = Object.freeze({
-  regular: 'var(--font-weight-regular)',
-  medium: 'var(--font-weight-medium)',
-  bold: 'var(--font-weight-extra-bold)',
-  black: 'var(--font-weight-black)',
-})
+export const regular = 'var(--font-weight-regular)'
+export const medium = 'var(--font-weight-medium)'
+export const bold = 'var(--font-weight-extra-bold)'
+export const black = 'var(--font-weight-black)'
