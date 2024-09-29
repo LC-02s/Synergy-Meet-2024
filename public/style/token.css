@@ -68,6 +68,9 @@
   --cyan-800: #124e4c;
   --cyan-900: #0c3230;
 
+  --floating-box-background: rgba(255, 255, 255, 0.24);
+  --floating-box-border: rgba(255, 255, 255, 0.36);
+
   --font-size-100: 0.75rem;
   --font-size-200: 0.875rem;
   --font-size-300: 1rem;

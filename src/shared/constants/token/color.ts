@@ -64,3 +64,6 @@ export const cyan600 = 'var(--cyan-600)'
 export const cyan700 = 'var(--cyan-700)'
 export const cyan800 = 'var(--cyan-800)'
 export const cyan900 = 'var(--cyan-900)'
+
+export const floatingBoxBackground = 'var(--floating-box-background)'
+export const floatingBoxBorder = 'var(--floating-box-border)'
