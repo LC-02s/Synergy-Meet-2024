@@ -21,7 +21,13 @@ interface BreakpointStore {
 
 const useBreakpointStore = create<BreakpointStore>(set => ({
   breakpoint: { xs: false, sm: false, md: false, lg: false, xl: false },
-  updateBreakpoint: breakpoint => set({ breakpoint }),
+  updateBreakpoint: breakpoint =>
+    set(prev => {
+      if (JSON.stringify(prev.breakpoint) !== JSON.stringify(breakpoint)) {
+        return { breakpoint }
+      }
+      return prev
+    }),
 }))
 
 export function useUpdateMedia() {
@@ -39,6 +45,10 @@ export function useUpdateMedia() {
   return updateMedia
 }
 
-export function useBreakpoint() {
+export function useBreakpoint(point: keyof Breakpoint) {
+  return useBreakpointStore(state => state.breakpoint[point])
+}
+
+export function useBreakpointAll() {
   return useBreakpointStore(state => state.breakpoint)
 }
