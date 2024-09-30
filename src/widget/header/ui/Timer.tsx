@@ -41,7 +41,7 @@ export default function Timer(props: JSX.IntrinsicElements['p']) {
         {...props}
         css={css`
           display: block;
-          width: 12rem;
+          width: 8.75rem;
           height: 1.5rem;
           border-radius: 0.25rem;
           background-color: ${$variable.color.cyan900};
@@ -58,11 +58,18 @@ export default function Timer(props: JSX.IntrinsicElements['p']) {
         font-weight: ${$variable.font.medium};
         color: ${$variable.color.cyan400};
         white-space: nowrap;
+        @media ${$variable.breakpoint.md} {
+          font-size: ${$variable.font.size200};
+        }
+        @media ${$variable.breakpoint.xs} {
+          margin: 0.25rem 0rem 0rem;
+          text-align: center;
+        }
       `}
     >
       {isTimesUp
         ? '마감되었습니다'
-        : `${days.toString().padStart(2, '0')}일 ${hours.toString().padStart(2, '0')}시간 ${minutes.toString().padStart(2, '0')}분 ${seconds.toString().padStart(2, '0')}초 남음`}
+        : `${days.toString().padStart(2, '0')}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`}
     </p>
   )
 }

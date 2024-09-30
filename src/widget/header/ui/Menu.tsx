@@ -13,8 +13,11 @@ function MenuItem(props: JSX.IntrinsicElements['a']) {
         & + & {
           margin: 0rem 0rem 0rem 0.5rem;
           @media ${$variable.breakpoint.md} {
-            margin: 0.25rem 0rem 0rem;
+            margin: 0.5rem 0rem 0rem;
           }
+        }
+        @media ${$variable.breakpoint.xs} {
+          margin: 0.25rem 0rem 0rem !important;
         }
         & > a {
           display: block;
@@ -36,7 +39,7 @@ function MenuItem(props: JSX.IntrinsicElements['a']) {
         }
       `}
     >
-      <a {...props} />
+      <a {...props}>{props.children}</a>
     </li>
   )
 }
@@ -119,6 +122,14 @@ function MenuRoot({ children }: React.PropsWithChildren) {
             border-radius: 0.5rem;
             background-color: ${$variable.color.floatingBoxBackground};
             overflow: hidden;
+            @media ${$variable.breakpoint.xs} {
+              width: 14.25rem;
+            }
+            & > ul > li:last-of-type {
+              @media ${$variable.breakpoint.xs} {
+                margin: 0.75rem 0rem 0rem;
+              }
+            }
           }
         `}
       >
@@ -163,6 +174,9 @@ function MenuRoot({ children }: React.PropsWithChildren) {
           display: flex;
           justify-content: flex-start;
           align-items: center;
+          @media ${$variable.breakpoint.md} {
+            display: none;
+          }
         `}
       >
         {children}

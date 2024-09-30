@@ -1,4 +1,4 @@
-import { Header } from '@/widget/header'
+import { Header, Dock } from '@/widget/header'
 import { Intro } from '@/widget/intro'
 import { Footer } from '@/widget/footer'
 import { Global } from '@emotion/react'
@@ -12,6 +12,7 @@ export default function App() {
       <Provider>
         <Header />
         <Intro />
+        <Dock />
         <Footer />
       </Provider>
     </>

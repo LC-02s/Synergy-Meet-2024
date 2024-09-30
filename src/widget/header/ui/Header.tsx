@@ -6,7 +6,7 @@ import Menu from './Menu'
 import Timer from './Timer'
 import FormLink from './FormLink'
 
-function HeaderRight() {
+function HeaderRightXL() {
   const xl = useBreakpoint('xl')
 
   return (
@@ -19,11 +19,27 @@ function HeaderRight() {
           & > * + * {
             margin-left: 1.25rem;
           }
+          @media ${$variable.breakpoint.xl} {
+            display: none;
+          }
         `}
       >
         <Timer />
         <FormLink />
       </div>
+    )
+  )
+}
+
+function MenuItemXS() {
+  const xs = useBreakpoint('xs')
+
+  return (
+    xs && (
+      <li>
+        <FormLink />
+        <Timer />
+      </li>
     )
   )
 }
@@ -59,7 +75,10 @@ export default function Header() {
             width: 100%;
           }
           & > * + * {
-            margin-left: 3rem;
+            margin: 0rem 0rem 0rem 3rem;
+            @media ${$variable.breakpoint.xl} {
+              margin: 0rem 0rem 0rem 1.5rem;
+            }
           }
         `}
       >
@@ -79,9 +98,10 @@ export default function Header() {
           <Menu.Item href="#map" title="오시는 길 바로가기">
             오시는 길
           </Menu.Item>
+          <MenuItemXS />
         </Menu>
       </div>
-      <HeaderRight />
+      <HeaderRightXL />
     </header>
   )
 }

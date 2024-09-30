@@ -21,7 +21,7 @@ export default function MainLogo(props: JSX.IntrinsicElements['a']) {
         }
       `}
     >
-      <a {...props} />
+      <a {...props}>{props.children}</a>
     </h1>
   )
 }
