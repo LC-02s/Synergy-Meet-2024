@@ -1,6 +1,7 @@
 import React from 'react'
 import { useIsomorphicLayoutEffect } from 'framer-motion'
-import { useUpdateMedia, useWindowEvent } from '../hooks'
+import { useUpdateMedia } from './useBreakpoint'
+import useWindowEvent from '../useWindowEvent'
 
 export default function MediaProvider({ children }: React.PropsWithChildren) {
   const updateMedia = useUpdateMedia()

@@ -1,6 +1,6 @@
 import React from 'react'
 import { create } from 'zustand'
-import { $variable } from '../constants'
+import { $variable } from '../../constants'
 
 interface Breakpoint {
   xs: boolean
@@ -21,13 +21,7 @@ interface BreakpointStore {
 
 const useBreakpointStore = create<BreakpointStore>(set => ({
   breakpoint: { xs: false, sm: false, md: false, lg: false, xl: false },
-  updateBreakpoint: breakpoint =>
-    set(prev => {
-      if (JSON.stringify(prev.breakpoint) !== JSON.stringify(breakpoint)) {
-        return { breakpoint }
-      }
-      return prev
-    }),
+  updateBreakpoint: breakpoint => set({ breakpoint }),
 }))
 
 export function useUpdateMedia() {
@@ -47,8 +41,4 @@ export function useUpdateMedia() {
 
 export function useBreakpoint(point: keyof Breakpoint) {
   return useBreakpointStore(state => state.breakpoint[point])
-}
-
-export function useBreakpointAll() {
-  return useBreakpointStore(state => state.breakpoint)
 }
