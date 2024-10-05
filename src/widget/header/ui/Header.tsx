@@ -1,87 +1,38 @@
-import { css } from '@emotion/react'
-import { $variable } from '@/shared/constants'
 import { useBreakpoint } from '@/shared/hooks'
+import { headerLeftStyle, headerRightStyle, headerStyle } from './Header.style'
 import MainLogo from './MainLogo'
 import Menu from './Menu'
 import Timer from './Timer'
 import FormLink from './FormLink'
 
-function HeaderRightXL() {
+function HeaderRight() {
   const xl = useBreakpoint('xl')
 
+  if (xl) return
   return (
-    !xl && (
-      <div
-        css={css`
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          & > * + * {
-            margin-left: 1.25rem;
-          }
-          @media ${$variable.breakpoint.xl} {
-            display: none;
-          }
-        `}
-      >
-        <Timer />
-        <FormLink />
-      </div>
-    )
+    <div css={headerRightStyle}>
+      <Timer />
+      <FormLink />
+    </div>
   )
 }
 
 function MenuItemXS() {
   const xs = useBreakpoint('xs')
 
+  if (!xs) return
   return (
-    xs && (
-      <li>
-        <FormLink />
-        <Timer />
-      </li>
-    )
+    <li>
+      <FormLink />
+      <Timer />
+    </li>
   )
 }
 
 export default function Header() {
   return (
-    <header
-      css={css`
-        position: fixed;
-        top: 0rem;
-        left: 0rem;
-        right: 0rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.25rem;
-        width: 100%;
-        height: 4.25rem;
-        padding: 0.75rem 2.5rem;
-        @media ${$variable.breakpoint.md} {
-          height: 4rem;
-          padding: 0.75rem 1.25rem;
-        }
-      `}
-    >
-      <div
-        css={css`
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          @media ${$variable.breakpoint.xl} {
-            justify-content: space-between;
-            width: 100%;
-          }
-          & > * + * {
-            margin: 0rem 0rem 0rem 3rem;
-            @media ${$variable.breakpoint.xl} {
-              margin: 0rem 0rem 0rem 1.5rem;
-            }
-          }
-        `}
-      >
+    <header css={headerStyle}>
+      <div css={headerLeftStyle}>
         <MainLogo href="/" title="메인으로">
           Synergy Meet
         </MainLogo>
@@ -101,7 +52,7 @@ export default function Header() {
           <MenuItemXS />
         </Menu>
       </div>
-      <HeaderRightXL />
+      <HeaderRight />
     </header>
   )
 }
