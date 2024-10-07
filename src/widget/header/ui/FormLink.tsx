@@ -1,12 +1,13 @@
-import { buttonCSS, buttonVariable, Icon } from '@/shared/ui'
+import { Button, buttonCSS, buttonVariable, Dialog, Icon } from '@/shared/ui'
 import { $variable } from '@/shared/constants'
-import { useBreakpoint } from '@/shared/hooks'
+import { useBreakpoint, useOverlay } from '@/shared/hooks'
 import { useTimesUp } from './Timer'
 
 export default function FormLink() {
   const isTimesUp = useTimesUp()
   const md = useBreakpoint('md')
   const xs = useBreakpoint('xs')
+  const { open } = useOverlay()
 
   return (
     <a
@@ -15,6 +16,21 @@ export default function FormLink() {
       target="_blank"
       onClick={e => {
         e.preventDefault()
+        open(({ isOpen, close }) => (
+          <Dialog open={isOpen} onClose={close}>
+            <Dialog.Header>
+              <Dialog.Title />
+            </Dialog.Header>
+            <Dialog.Content>
+              <p>{isTimesUp ? '마감되었습니다' : '신청 폼 준비 중입니다'}</p>
+            </Dialog.Content>
+            <Dialog.Footer>
+              <Button variant="light" onClick={close}>
+                닫기
+              </Button>
+            </Dialog.Footer>
+          </Dialog>
+        ))
       }}
       aria-disabled={isTimesUp}
       css={buttonCSS}
