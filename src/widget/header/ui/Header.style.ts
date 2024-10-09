@@ -3,6 +3,7 @@ import { $variable } from '@/shared/constants'
 
 export const headerStyle = css`
   position: fixed;
+  z-index: 9999;
   top: 0rem;
   left: 0rem;
   right: 0rem;

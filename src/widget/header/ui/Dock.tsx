@@ -9,6 +9,7 @@ import FormLink from './FormLink'
 
 const dockStyle = css`
   position: fixed;
+  z-index: 9999;
   bottom: 2.5rem;
   left: 2.5rem;
   right: 2.5rem;
@@ -40,6 +41,7 @@ const dockStyle = css`
   }
   & > div {
     display: none;
+    pointer-events: all;
     @media ${$variable.breakpoint.xl} {
       display: flex;
       justify-content: flex-end;
@@ -47,7 +49,7 @@ const dockStyle = css`
       padding: 0rem 0.75rem;
     }
     @media ${$variable.breakpoint.md} {
-      padding: 0rem 0.5rem;
+      padding: 0rem 0.625rem;
     }
     @media ${$variable.breakpoint.sm} {
       padding: 0rem;

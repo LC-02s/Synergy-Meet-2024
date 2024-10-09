@@ -41,7 +41,9 @@ export default function FormLink() {
         round: xs ? 'sm' : 'full',
       })}
     >
-      <span style={{ margin: '0.125rem 0rem 0rem', padding: '0rem 0.25rem' }}>참가 신청하기</span>
+      <span style={{ margin: '0.125rem 0rem 0rem', padding: '0rem 0.25rem', whiteSpace: 'nowrap' }}>
+        참가 신청하기
+      </span>
       {!md && <Icon.ArrowRightUp style={{ fontSize: $variable.font.size600 }} />}
     </a>
   )
