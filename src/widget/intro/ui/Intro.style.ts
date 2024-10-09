@@ -139,6 +139,7 @@ export const introVideoStyle = css`
     left: 0rem;
     right: 0rem;
     background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: saturate(120%) blur(0.125rem);
   }
   & > p {
     position: absolute;
