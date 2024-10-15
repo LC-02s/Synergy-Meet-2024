@@ -17,9 +17,19 @@ export const introTitleStyle = css`
   justify-content: center;
   align-items: center;
   transform: translateY(-80%);
+  transition: all 0.2s ease-in-out;
   &.forward,
   &.backward {
     display: none;
+  }
+  @media ${$variable.breakpoint.lg} {
+    top: 48%;
+  }
+  @media ${$variable.breakpoint.md} {
+    top: 45%;
+  }
+  @media ${$variable.breakpoint.xs} {
+    top: 48%;
   }
   & > span {
     display: block;
@@ -166,6 +176,7 @@ export const introVideoStyle = css`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    transition: all 0.2s ease-in-out;
     &.landscape {
       top: 50%;
       bottom: auto;
