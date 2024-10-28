@@ -151,40 +151,16 @@ export const introVideoStyle = css`
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: saturate(120%) blur(0.125rem);
   }
-  & > p {
-    position: absolute;
-    z-index: 3;
-    top: 0rem;
-    bottom: 0rem;
-    left: 0rem;
-    right: 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  & > canvas {
+  & > video {
     position: absolute;
     z-index: 1;
     top: 0rem;
     bottom: 0rem;
-    left: 50%;
-    right: auto;
+    left: 0rem;
+    right: 0rem;
     display: block;
-    width: auto;
-    height: ${DVH100};
-    transform: translateX(-50%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition: all 0.2s ease-in-out;
-    &.landscape {
-      top: 50%;
-      bottom: auto;
-      left: 0rem;
-      right: 0rem;
-      width: 100vw;
-      height: auto;
-      transform: translateY(-50%);
-    }
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
   }
 `

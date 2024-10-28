@@ -1,11 +1,9 @@
 import React from 'react'
-import { useScroll, useMotionValueEvent, useIsomorphicLayoutEffect } from 'framer-motion'
+import { useScroll, useMotionValueEvent } from 'framer-motion'
 import { ADDRESS, DEADLINE } from '@/shared/constants'
-import { HiddenText, Icon } from '@/shared/ui'
-import { useWindowEvent } from '@/shared/hooks'
+import { Icon } from '@/shared/ui'
 import { computePartProgress } from '@/shared/utils'
-import { TOTAL_FRAME } from '../constants'
-import { getFrameProgress, getFrameImage, formatDeadline } from '../utils'
+import { formatDeadline } from '../utils'
 import { introStyle, introTitleStyle, scrollGuideStyle, introVideoStyle } from './Intro.style'
 
 const partAnimation = {
@@ -48,55 +46,8 @@ const partAnimation = {
 }
 
 export default function Intro() {
-  const [isLoading, setLoading] = React.useState(true)
-
-  const canvasRef = React.useRef<HTMLCanvasElement | null>(null)
-  const canvasContext = React.useRef<CanvasRenderingContext2D | null>(null)
-  const videoFrame = React.useRef<HTMLImageElement[]>([])
-  const loadedImageCount = React.useRef(0)
-
-  React.useEffect(() => {
-    const canvasEl = canvasRef.current
-    canvasContext.current = canvasEl?.getContext('2d') ?? null
-    videoFrame.current = Array.from({ length: TOTAL_FRAME }, (_, i) => {
-      const imgEl = new Image()
-      imgEl.src = getFrameImage(i)
-      imgEl.onload = () => {
-        loadedImageCount.current += 1
-        setLoading(TOTAL_FRAME === loadedImageCount.current)
-      }
-      return imgEl
-    })
-  }, [])
-
   const containerRef = React.useRef<HTMLElement | null>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
-  useIsomorphicLayoutEffect(() => {
-    const progress = scrollYProgress.get()
-    const currentFrame = getFrameProgress(progress)
-    const canvasEl = canvasRef.current
-    canvasEl?.style.setProperty('background-image', `url("${getFrameImage(currentFrame)}")`)
-  }, [isLoading])
-
-  useMotionValueEvent(scrollYProgress, 'change', progress => {
-    requestAnimationFrame(() => {
-      const context = canvasContext.current
-      const currentFrame = getFrameProgress(progress)
-      context?.drawImage(videoFrame.current[currentFrame], 0, 0)
-    })
-  })
-
-  const [isLandscape, setLandscape] = React.useState(false)
-  const checkLandscape = React.useCallback(() => {
-    setLandscape(window.innerHeight / window.innerWidth < 0.5625)
-  }, [])
-
-  useIsomorphicLayoutEffect(checkLandscape, [])
-  useWindowEvent('resize', checkLandscape)
+  const { scrollYProgress } = useScroll({ target: containerRef })
 
   const scrollGuideRef = React.useRef<HTMLParagraphElement | null>(null)
 
@@ -142,8 +93,11 @@ export default function Intro() {
   })
 
   const videoContainerRef = React.useRef<HTMLDivElement | null>(null)
+  const videoRef = React.useRef<HTMLVideoElement | null>(null)
 
   useMotionValueEvent(scrollYProgress, 'change', progress => {
+    const videoEl = videoRef.current
+    videoEl?.[progress === 1 ? 'pause' : 'play']()
     requestAnimationFrame(() => {
       const { start, end } = partAnimation.videoFadeInOut
       const videoContainerEl = videoContainerRef.current
@@ -172,18 +126,7 @@ export default function Intro() {
         <Icon.AltArrowDown />
       </p>
       <div ref={videoContainerRef} css={introVideoStyle}>
-        {isLoading && (
-          <p>
-            <Icon.BarsRotateFadeSpinner style={{ fontSize: '2.25rem' }} />
-            <HiddenText>로딩 중</HiddenText>
-          </p>
-        )}
-        <canvas
-          ref={canvasRef}
-          className={isLandscape ? 'landscape' : undefined}
-          width={1280}
-          height={720}
-        />
+        <video ref={videoRef} src="/video/intro.mp4" autoPlay loop muted />
       </div>
     </section>
   )
