@@ -6,7 +6,7 @@ import { computePartProgress } from '@/shared/utils'
 import { formatDeadline } from '../utils'
 import { introStyle, introTitleStyle, scrollGuideStyle, introVideoStyle } from './Intro.style'
 
-const partAnimation = {
+const frameRate = {
   guideFadeInOut: {
     start: 0.25,
     end: 0.5,
@@ -53,10 +53,10 @@ export default function Intro() {
 
   useMotionValueEvent(scrollYProgress, 'change', progress => {
     requestAnimationFrame(() => {
-      const { start, end } = partAnimation.guideFadeInOut
+      const { start, end } = frameRate.guideFadeInOut
       const scrollGuideEl = scrollGuideRef.current
       const partProgress = computePartProgress({ progress, start, end })
-      scrollGuideEl?.style.setProperty('--opacity', String(1 - partProgress))
+      scrollGuideEl?.style.setProperty('--opacity', (1 - partProgress).toString())
       scrollGuideEl?.style.setProperty('--translateY', `-${partProgress * 30}%`)
       scrollGuideEl?.classList[partProgress === 1 ? 'add' : 'remove']('hidden')
     })
@@ -68,24 +68,24 @@ export default function Intro() {
     requestAnimationFrame(() => {
       const titleContainerEl = titleContainerRef.current
       const titleEls = titleContainerEl?.querySelectorAll('span')
-      titleEls?.forEach((titleEl, i) => {
-        const { start: fs, end: fe } = partAnimation.titleFadeIn[i]
-        const { start: bs, end: be } = partAnimation.titleFadeOut[i]
-        const forwardProgress = computePartProgress({ progress, start: fs, end: fe })
-        const backwardProgress = computePartProgress({ progress, start: bs, end: be })
+      titleEls?.forEach((titleEl, idx) => {
+        const forwardFrameRate = frameRate.titleFadeIn[idx]
+        const backwardFrameRate = frameRate.titleFadeOut[idx]
+        const forwardProgress = computePartProgress({ progress, ...forwardFrameRate })
+        const backwardProgress = computePartProgress({ progress, ...backwardFrameRate })
 
         if (backwardProgress === 0) {
-          titleEl.style.setProperty('--opacity', String(forwardProgress))
+          titleEl.style.setProperty('--opacity', forwardProgress.toString())
           titleEl.style.setProperty('--translateY', `${forwardProgress * 30}%`)
         }
         if (forwardProgress === 1) {
-          titleEl.style.setProperty('--opacity', String(1 - backwardProgress))
+          titleEl.style.setProperty('--opacity', (1 - backwardProgress).toString())
           titleEl.style.setProperty('--translateY', `${30 - backwardProgress * 30}%`)
         }
-        if (i === 0) {
+        if (idx === 0) {
           titleContainerEl?.classList[forwardProgress === 0 ? 'add' : 'remove']('forward')
         }
-        if (i === titleEls.length - 1) {
+        if (idx === titleEls.length - 1) {
           titleContainerEl?.classList[backwardProgress === 1 ? 'add' : 'remove']('backward')
         }
       })
@@ -99,10 +99,10 @@ export default function Intro() {
     const videoEl = videoRef.current
     videoEl?.[progress === 1 ? 'pause' : 'play']()
     requestAnimationFrame(() => {
-      const { start, end } = partAnimation.videoFadeInOut
+      const { start, end } = frameRate.videoFadeInOut
       const videoContainerEl = videoContainerRef.current
       const partProgress = computePartProgress({ progress, start, end })
-      videoContainerEl?.style.setProperty('--opacity', String(1 - partProgress))
+      videoContainerEl?.style.setProperty('--opacity', (1 - partProgress).toString())
     })
   })
 
