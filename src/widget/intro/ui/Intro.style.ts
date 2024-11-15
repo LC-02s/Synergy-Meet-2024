@@ -18,8 +18,7 @@ export const introTitleStyle = css`
   align-items: center;
   transform: translateY(-80%);
   transition: all 0.2s ease-in-out;
-  &.forward,
-  &.backward {
+  &.hidden {
     display: none;
   }
   @media ${$variable.breakpoint.lg} {
@@ -38,6 +37,7 @@ export const introTitleStyle = css`
     color: ${$variable.color.gray000};
     line-height: ${$variable.leading.normal};
     white-space: nowrap;
+    text-transform: uppercase;
     opacity: var(--opacity);
     transform: translateY(var(--translateY));
     @supports (-webkit-text-stroke: 1px #fff) {
@@ -70,8 +70,6 @@ export const scrollGuideStyle = css`
   align-items: center;
   color: ${$variable.color.gray000};
   text-align: center;
-  opacity: var(--opacity);
-  transform: translateY(var(--translateY));
   @media ${$variable.breakpoint.xl} {
     bottom: 8.5rem;
   }
@@ -80,9 +78,6 @@ export const scrollGuideStyle = css`
   }
   @media ${$variable.breakpoint.xs} {
     bottom: 3rem;
-  }
-  &.hidden {
-    display: none;
   }
   & > strong {
     margin: 0rem 0rem 1.125rem;
@@ -139,7 +134,6 @@ export const introVideoStyle = css`
   width: 100%;
   height: ${DVH100};
   overflow: hidden;
-  opacity: var(--opacity);
   &::after {
     content: '';
     position: absolute;
