@@ -81,7 +81,8 @@ export default function Dock() {
   return (
     <AnimatePresence>
       {!xs && (xl || isRender) && (
-        <motion.div
+        <motion.section
+          id="dock"
           initial={{
             transform: 'translateY(36%)',
             opacity: 0,
@@ -104,7 +105,7 @@ export default function Dock() {
               <FormLink />
             </div>
           )}
-        </motion.div>
+        </motion.section>
       )}
     </AnimatePresence>
   )
