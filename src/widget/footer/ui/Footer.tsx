@@ -112,7 +112,7 @@ export default function Footer() {
             </li>
           </ul>
           <address>
-            {ADDRESS.split('\n').map(separated => (
+            {ADDRESS.split('\n').map((separated) => (
               <React.Fragment key={separated}>
                 {separated}
                 <br />

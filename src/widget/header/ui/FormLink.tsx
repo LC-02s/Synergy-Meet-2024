@@ -14,7 +14,7 @@ export default function FormLink() {
       href="/participation"
       title={`새창이동: 참가 신청하러 가기${isTimesUp ? ' (마감됨)' : ''}`}
       target="_blank"
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault()
         open(({ isOpen, close }) => (
           <Dialog open={isOpen} onClose={close}>

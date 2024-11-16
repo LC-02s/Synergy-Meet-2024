@@ -5,7 +5,7 @@ export default function useOutsideClick<T extends HTMLElement>(
   callback: (event: MouseEvent) => void,
 ) {
   const targetAreaRef = React.useRef<T | null>(null)
-  useDocumentEvent('click', event => {
+  useDocumentEvent('click', (event) => {
     if (!targetAreaRef.current) return
     if (targetAreaRef.current.contains(event.target as Node | null)) {
       return

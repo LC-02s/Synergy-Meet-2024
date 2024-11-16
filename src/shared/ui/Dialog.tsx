@@ -56,7 +56,7 @@ function CloseButton({ onClick, ...props }: React.ComponentProps<typeof Button>)
       size="xs"
       round="full"
       square
-      onClick={e => {
+      onClick={(e) => {
         close?.()
         onClick?.(e)
       }}

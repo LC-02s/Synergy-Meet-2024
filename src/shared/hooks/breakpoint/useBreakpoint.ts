@@ -19,13 +19,13 @@ interface BreakpointStore {
   updateBreakpoint: BreakpointSetter
 }
 
-const useBreakpointStore = create<BreakpointStore>(set => ({
+const useBreakpointStore = create<BreakpointStore>((set) => ({
   breakpoint: { xs: false, sm: false, md: false, lg: false, xl: false },
-  updateBreakpoint: breakpoint => set({ breakpoint }),
+  updateBreakpoint: (breakpoint) => set({ breakpoint }),
 }))
 
 export function useUpdateMedia() {
-  const updateBreakpoint = useBreakpointStore(state => state.updateBreakpoint)
+  const updateBreakpoint = useBreakpointStore((state) => state.updateBreakpoint)
   const updateMedia = React.useCallback(() => {
     updateBreakpoint({
       xs: window.matchMedia($variable.breakpoint.xs).matches,
@@ -40,5 +40,5 @@ export function useUpdateMedia() {
 }
 
 export function useBreakpoint(point: keyof Breakpoint) {
-  return useBreakpointStore(state => state.breakpoint[point])
+  return useBreakpointStore((state) => state.breakpoint[point])
 }

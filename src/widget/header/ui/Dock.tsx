@@ -72,7 +72,7 @@ export default function Dock() {
   const [isRender, setRender] = React.useState(false)
 
   const { scrollY } = useScroll()
-  useMotionValueEvent(scrollY, 'change', latest => {
+  useMotionValueEvent(scrollY, 'change', (latest) => {
     if (!xl) setRender(latest > window.innerHeight)
   })
 

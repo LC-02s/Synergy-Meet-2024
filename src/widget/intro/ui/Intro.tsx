@@ -30,14 +30,14 @@ export default function Intro() {
   const { scrollYProgress } = useScroll({ target: containerRef })
 
   const titleContainerRef = React.useRef<HTMLHeadingElement | null>(null)
-  const titleProgressList = useTransform(scrollYProgress, progress => {
+  const titleProgressList = useTransform(scrollYProgress, (progress) => {
     return frameRate.title.map(({ fadeIn, fadeOut }) => ({
       forwardProgress: computePartProgress({ progress, ...fadeIn }),
       backwardProgress: computePartProgress({ progress, ...fadeOut }),
     }))
   })
 
-  useMotionValueEvent(titleProgressList, 'change', progressList => {
+  useMotionValueEvent(titleProgressList, 'change', (progressList) => {
     requestAnimationFrame(() => {
       const titleContainerEl = titleContainerRef.current
       const titleEls = titleContainerEl?.querySelectorAll('span')
@@ -59,28 +59,28 @@ export default function Intro() {
     })
   })
 
-  const scrollGuideProgress = useTransform(scrollYProgress, progress => {
+  const scrollGuideProgress = useTransform(scrollYProgress, (progress) => {
     return computePartProgress({ progress, ...frameRate.guideFadeInOut })
   })
-  const scrollGuideDisplay = useTransform(scrollGuideProgress, progress => {
+  const scrollGuideDisplay = useTransform(scrollGuideProgress, (progress) => {
     return progress === 1 ? 'none' : 'flex'
   })
-  const scrollGuideOpacity = useTransform(scrollGuideProgress, progress => {
+  const scrollGuideOpacity = useTransform(scrollGuideProgress, (progress) => {
     return 1 - progress
   })
-  const scrollGuideY = useTransform(scrollGuideProgress, progress => {
+  const scrollGuideY = useTransform(scrollGuideProgress, (progress) => {
     return `-${progress * 30}%`
   })
 
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
-  const videoContainerProgress = useTransform(scrollYProgress, progress => {
+  const videoContainerProgress = useTransform(scrollYProgress, (progress) => {
     return computePartProgress({ progress, ...frameRate.videoFadeInOut })
   })
-  const videoContainerOpacity = useTransform(videoContainerProgress, progress => {
+  const videoContainerOpacity = useTransform(videoContainerProgress, (progress) => {
     return 1 - progress
   })
 
-  useMotionValueEvent(videoContainerProgress, 'change', progress => {
+  useMotionValueEvent(videoContainerProgress, 'change', (progress) => {
     const videoEl = videoRef.current
     videoEl?.[progress === 1 ? 'pause' : 'play']()
   })
@@ -102,7 +102,7 @@ export default function Intro() {
       >
         <strong>{formatDeadline(DEADLINE)}</strong>
         <span>
-          {ADDRESS.split('\n').map(separated => (
+          {ADDRESS.split('\n').map((separated) => (
             <React.Fragment key={separated}>
               {separated}
               <br />

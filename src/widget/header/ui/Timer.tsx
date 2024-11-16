@@ -10,18 +10,18 @@ interface TimerStore {
   setTimesUp: (status: boolean) => void
 }
 
-const useTimerStore = create<TimerStore>(set => ({
+const useTimerStore = create<TimerStore>((set) => ({
   isTimesUp: false,
-  setTimesUp: isTimesUp => set({ isTimesUp }),
+  setTimesUp: (isTimesUp) => set({ isTimesUp }),
 }))
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useTimesUp() {
-  return useTimerStore(state => state.isTimesUp)
+  return useTimerStore((state) => state.isTimesUp)
 }
 
 export default function Timer(props: JSX.IntrinsicElements['p']) {
-  const { isTimesUp, setTimesUp } = useTimerStore(state => state)
+  const { isTimesUp, setTimesUp } = useTimerStore((state) => state)
   const [isHydrated, setHydrated] = React.useState(false)
   const [days, setDays] = React.useState(0)
   const [hours, setHours] = React.useState(0)

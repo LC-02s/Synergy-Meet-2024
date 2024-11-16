@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const startedAt = new Date().getTime()
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const toAbsolute = p => path.resolve(__dirname, p)
+const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const indexPath = toAbsolute('dist/index.html')
 const template = fs.readFileSync(indexPath, 'utf-8')
