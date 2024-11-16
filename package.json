@@ -12,10 +12,9 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky",
     "dev": "node server",
-    "build": "pnpm build:client && pnpm build:server",
-    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build": "pnpm build:client && pnpm build:server && node pre-render",
+    "build:client": "vite build --outDir dist",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server",
     "format": "prettier --cache --write --ignore-unknown .",
     "lint": "eslint --cache .",
     "prepare": "husky"
@@ -24,12 +23,10 @@
     "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.3",
     "@emotion/server": "^11.11.0",
-    "compression": "^1.7.4",
     "express": "^4.21.0",
     "framer-motion": "^11.5.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sirv": "^2.0.4",
     "zustand": "5.0.0-rc.2"
   },
   "devDependencies": {
