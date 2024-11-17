@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, useScroll, useMotionValueEvent, useTransform } from 'framer-motion'
+import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react'
 import { ADDRESS, DEADLINE } from '@/shared/constants'
 import { Icon } from '@/shared/ui'
 import { computePartProgress } from '@/shared/utils'

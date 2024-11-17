@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AnimatePresence, motion, useIsomorphicLayoutEffect } from 'framer-motion'
+import { AnimatePresence, motion, useIsomorphicLayoutEffect } from 'motion/react'
 import { useOutsideClick, useStopScroll } from '../hooks'
 import { $variable } from '../constants'
 import Button from './Button'

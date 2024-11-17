@@ -1,5 +1,5 @@
 import React from 'react'
-import { useIsomorphicLayoutEffect } from 'framer-motion'
+import { useIsomorphicLayoutEffect } from 'motion/react'
 
 export default function useInterval(callback: () => void, tick: number, autoStart = true) {
   const savedCallback = React.useRef(callback)

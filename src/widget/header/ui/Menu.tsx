@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { useBooleanState, useBreakpoint, useOutsideClick } from '@/shared/hooks'
 import { HiddenText } from '@/shared/ui'
 import { menuItemStyle, menuRootStyle, menuRootStyleMd } from './Menu.style'

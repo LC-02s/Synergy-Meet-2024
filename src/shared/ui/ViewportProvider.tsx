@@ -1,5 +1,5 @@
 import React from 'react'
-import { useIsomorphicLayoutEffect } from 'framer-motion'
+import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useWindowEvent } from '../hooks'
 
 export default function ViewportProvider({ children }: React.PropsWithChildren) {

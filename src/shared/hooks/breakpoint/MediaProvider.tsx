@@ -1,5 +1,5 @@
 import React from 'react'
-import { useIsomorphicLayoutEffect } from 'framer-motion'
+import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useUpdateMedia } from './useBreakpoint'
 import useWindowEvent from '../useWindowEvent'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/react'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { useBreakpoint } from '@/shared/hooks'
 import { $variable } from '@/shared/constants'
 import TopButton from './TopButton'
