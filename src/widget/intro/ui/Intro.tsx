@@ -2,8 +2,7 @@ import React from 'react'
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react'
 import { ADDRESS, DEADLINE } from '@/shared/constants'
 import { Icon } from '@/shared/ui'
-import { computePartProgress } from '@/shared/utils'
-import { formatDeadline } from '../utils'
+import { computePartProgress, formatDeadline } from '@/shared/utils'
 import { introStyle, introTitleStyle, scrollGuideStyle, introVideoStyle } from './Intro.style'
 
 const frameRate = {
