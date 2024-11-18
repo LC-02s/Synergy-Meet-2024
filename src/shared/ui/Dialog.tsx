@@ -139,7 +139,7 @@ function Dialog({
         </div>
       )}
     </AnimatePresence>,
-    document.body,
+    document.querySelector('main') || document.body,
   )
 }
 
