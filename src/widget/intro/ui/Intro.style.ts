@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
-import { $variable, DVH100 } from '@/shared/constants'
+import { $variable } from '@/shared/constants'
 
 export const introStyle = css`
   position: relative;
   width: 100%;
-  height: calc(${DVH100} * 4);
+  height: 400vh;
   margin: 0rem 0rem -24vw;
   @media ${$variable.breakpoint.xl} {
     margin: 0rem 0rem -36vw;
@@ -141,11 +141,11 @@ export const introVideoStyle = css`
   position: sticky;
   z-index: -1;
   top: 0rem;
-  bottom: calc(${DVH100} * 4);
+  bottom: 400vh;
   left: 0rem;
   right: 0rem;
   width: 100%;
-  height: ${DVH100};
+  height: 100vh;
   overflow: hidden;
   &::after {
     content: '';

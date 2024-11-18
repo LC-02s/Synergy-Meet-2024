@@ -2,7 +2,6 @@ import React from 'react'
 import type { EmotionCache } from '@emotion/cache'
 import { CacheProvider, Global } from '@emotion/react'
 import { MediaProvider } from '@/shared/hooks'
-import { ViewportProvider } from '@/shared/ui'
 import { globalStyle } from './App.style'
 
 interface ProviderProps {
@@ -14,9 +13,7 @@ export default function Provider({ cache, children }: React.PropsWithChildren<Pr
     <React.StrictMode>
       <CacheProvider value={cache}>
         <Global styles={globalStyle} />
-        <MediaProvider>
-          <ViewportProvider>{children}</ViewportProvider>
-        </MediaProvider>
+        <MediaProvider>{children}</MediaProvider>
       </CacheProvider>
     </React.StrictMode>
   )
