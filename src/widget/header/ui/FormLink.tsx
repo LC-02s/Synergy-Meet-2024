@@ -1,4 +1,4 @@
-import { Button, buttonCSS, buttonVariable, Dialog, Icon } from '@/shared/ui'
+import { AlertDialog, buttonCSS, buttonVariable, Icon } from '@/shared/ui'
 import { $variable, FORM_LINK } from '@/shared/constants'
 import { useBreakpoint, useOverlay, useTimesUp } from '@/shared/hooks'
 
@@ -17,19 +17,9 @@ export default function FormLink() {
       onClick={(e) => {
         e.preventDefault()
         open(({ isOpen, close }) => (
-          <Dialog open={isOpen} onClose={close}>
-            <Dialog.Header>
-              <Dialog.Title />
-            </Dialog.Header>
-            <Dialog.Content>
-              <p>{isTimesUp ? '마감되었습니다' : '신청 폼 준비 중입니다'}</p>
-            </Dialog.Content>
-            <Dialog.Footer>
-              <Button variant="light" onClick={close}>
-                닫기
-              </Button>
-            </Dialog.Footer>
-          </Dialog>
+          <AlertDialog open={isOpen} onClose={close}>
+            {isTimesUp ? '마감되었습니다' : '신청 폼 준비 중입니다'}
+          </AlertDialog>
         ))
       }}
       aria-disabled={isTimesUp}
