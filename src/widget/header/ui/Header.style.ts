@@ -14,6 +14,8 @@ export const headerStyle = css`
   width: 100%;
   height: 4.25rem;
   padding: 0.75rem 2.5rem;
+  background: rgba(19, 21, 23, 1, 0.6);
+  background: linear-gradient(0deg, rgba(19, 21, 23, 0) 0%, rgba(3, 5, 7, 1) 100%);
   @media ${$variable.breakpoint.md} {
     height: 4rem;
     padding: 0.75rem 1.25rem;

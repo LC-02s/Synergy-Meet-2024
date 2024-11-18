@@ -27,6 +27,7 @@ const dockStyle = css`
     border: 1px solid ${$variable.color.floatingBoxBorder};
     border-radius: 9999px;
     background-color: ${$variable.color.floatingBoxBackground};
+    backdrop-filter: blur(4px) saturate(120%);
   }
   @media ${$variable.breakpoint.md} {
     bottom: 1.5rem;

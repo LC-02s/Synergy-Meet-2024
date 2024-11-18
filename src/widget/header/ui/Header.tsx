@@ -8,7 +8,10 @@ import FormLink from './FormLink'
 function HeaderRight() {
   const xl = useBreakpoint('xl')
 
-  if (xl) return
+  if (xl) {
+    return null
+  }
+
   return (
     <div css={headerRightStyle}>
       <Timer />
@@ -20,7 +23,10 @@ function HeaderRight() {
 function MenuItemXS() {
   const xs = useBreakpoint('xs')
 
-  if (!xs) return
+  if (!xs) {
+    return null
+  }
+
   return (
     <li>
       <FormLink />
@@ -40,7 +46,7 @@ export default function Header() {
           <Menu.Item href="#introduce" title="밋업 소개 바로가기">
             밋업 소개
           </Menu.Item>
-          <Menu.Item href="#must-read" title="참여 전 필독 바로가기">
+          <Menu.Item href="#coc" title="참여 전 필독 바로가기">
             참여 전 필독
           </Menu.Item>
           <Menu.Item href="#faq" title="자주하는 질문 바로가기">

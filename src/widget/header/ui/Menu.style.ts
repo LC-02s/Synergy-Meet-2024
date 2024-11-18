@@ -43,6 +43,7 @@ export const menuRootStyle = css`
 
 export const menuRootStyleMd = css`
   position: relative;
+  z-index: 99999;
   & > button {
     position: relative;
     display: block;
@@ -107,6 +108,7 @@ export const menuRootStyleMd = css`
     border: 1px solid ${$variable.color.floatingBoxBorder};
     border-radius: 0.5rem;
     background-color: ${$variable.color.floatingBoxBackground};
+    backdrop-filter: blur(4px) saturate(120%);
     overflow: hidden;
     @media ${$variable.breakpoint.xs} {
       width: 14.25rem;
