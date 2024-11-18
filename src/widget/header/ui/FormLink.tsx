@@ -1,5 +1,5 @@
 import { Button, buttonCSS, buttonVariable, Dialog, Icon } from '@/shared/ui'
-import { $variable } from '@/shared/constants'
+import { $variable, FORM_LINK } from '@/shared/constants'
 import { useBreakpoint, useOverlay, useTimesUp } from '@/shared/hooks'
 
 export default function FormLink() {
@@ -10,9 +10,10 @@ export default function FormLink() {
 
   return (
     <a
-      href="/participation"
+      href={FORM_LINK}
       title={`새창이동: 참가 신청하러 가기${isTimesUp ? ' (마감됨)' : ''}`}
       target="_blank"
+      rel="noreferrer"
       onClick={(e) => {
         e.preventDefault()
         open(({ isOpen, close }) => (
