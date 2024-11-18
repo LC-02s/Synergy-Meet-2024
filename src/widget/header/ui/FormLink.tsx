@@ -1,10 +1,9 @@
 import { Button, buttonCSS, buttonVariable, Dialog, Icon } from '@/shared/ui'
 import { $variable } from '@/shared/constants'
-import { useBreakpoint, useOverlay } from '@/shared/hooks'
-import { useTimesUp } from './Timer'
+import { useBreakpoint, useOverlay, useTimesUp } from '@/shared/hooks'
 
 export default function FormLink() {
-  const isTimesUp = useTimesUp()
+  const { isTimesUp } = useTimesUp()
   const md = useBreakpoint('md')
   const xs = useBreakpoint('xs')
   const { open } = useOverlay()
