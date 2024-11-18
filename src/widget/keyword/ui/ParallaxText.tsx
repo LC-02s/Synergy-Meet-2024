@@ -22,6 +22,9 @@ const parallaxStyle = css`
   overflow: hidden;
   padding: 0.5rem 0rem 0rem;
   background-color: ${$variable.color.cyan700};
+  @media ${$variable.breakpoint.xl} {
+    padding: 0.25rem 0rem 0rem;
+  }
   & + & {
     margin: 2.75rem 0rem 0rem;
     @media ${$variable.breakpoint.lg} {
