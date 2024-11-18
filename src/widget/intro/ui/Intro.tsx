@@ -85,7 +85,7 @@ export default function Intro() {
   })
 
   return (
-    <section id="introduction" ref={containerRef} css={introStyle}>
+    <section id="intro" ref={containerRef} css={introStyle}>
       <h2 ref={titleContainerRef} className="hidden" css={introTitleStyle}>
         <span>2024</span>
         <span>SYNERGY</span>

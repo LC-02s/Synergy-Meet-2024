@@ -1,6 +1,7 @@
 import type { EmotionCache } from '@emotion/cache'
 import { Header, Dock } from '@/widget/header'
 import { Intro } from '@/widget/intro'
+import { Introduce } from '@/widget/introduce'
 import { Keyword } from '@/widget/keyword'
 import { Footer } from '@/widget/footer'
 import { OverlayViewer } from '@/shared/hooks'
@@ -15,6 +16,7 @@ export default function App({ cache }: ApplicationProps) {
     <Provider cache={cache}>
       <Header />
       <Intro />
+      <Introduce />
       <Keyword />
       <Dock />
       <Footer />
