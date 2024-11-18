@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { AnimatePresence, motion, useIsomorphicLayoutEffect } from 'motion/react'
 import { useOutsideClick, useStopScroll } from '../hooks'
 import { $variable } from '../constants'
+import { getMainElement } from '../utils'
 import Button from './Button'
 import Dimmed from './Dimmed'
 import HiddenText from './HiddenText'
@@ -32,6 +33,7 @@ function useDialog() {
   if (!context) {
     throw new Error('useDialog is only available within DialogProvider.')
   }
+
   return context
 }
 
@@ -139,14 +141,8 @@ function Dialog({
         </div>
       )}
     </AnimatePresence>,
-    document.querySelector('main') || document.body,
+    getMainElement(),
   )
 }
 
-export default Object.assign(Dialog, {
-  Header,
-  Title,
-  CloseButton,
-  Content,
-  Footer,
-})
+export default Object.assign(Dialog, { Header, Title, CloseButton, Content, Footer })

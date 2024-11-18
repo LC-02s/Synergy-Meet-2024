@@ -2,8 +2,6 @@ import ReactDOM from 'react-dom/client'
 import createCache from '@emotion/cache'
 import { App } from '@/app'
 import { EMOTION_PREFIX } from '@/shared/constants'
+import { getMainElement } from '@/shared/utils'
 
-ReactDOM.hydrateRoot(
-  document.getElementById('main') || document.body,
-  <App cache={createCache({ key: EMOTION_PREFIX })} />,
-)
+ReactDOM.hydrateRoot(getMainElement(), <App cache={createCache({ key: EMOTION_PREFIX })} />)

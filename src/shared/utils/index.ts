@@ -3,3 +3,4 @@ export { getFocusableElement, getFocusableElementAll } from './getFocusableEleme
 export { default as computePartProgress } from './computePartProgress'
 export { default as formatDeadline } from './formatDeadline'
 export { default as wrap } from './wrap'
+export { default as getMainElement } from './getMainElement'
