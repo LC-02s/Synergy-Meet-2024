@@ -1,17 +1,23 @@
 import React from 'react'
-import { Global } from '@emotion/react'
-import { OverlayViewer, MediaProvider } from '@/shared/hooks'
+import type { EmotionCache } from '@emotion/cache'
+import { CacheProvider, Global } from '@emotion/react'
+import { MediaProvider } from '@/shared/hooks'
 import { ViewportProvider } from '@/shared/ui'
 import { globalStyle } from './App.style'
 
-export default function Provider({ children }: React.PropsWithChildren) {
+interface ProviderProps {
+  cache: EmotionCache
+}
+
+export default function Provider({ cache, children }: React.PropsWithChildren<ProviderProps>) {
   return (
-    <MediaProvider>
-      <ViewportProvider>
+    <React.StrictMode>
+      <CacheProvider value={cache}>
         <Global styles={globalStyle} />
-        {children}
-        <OverlayViewer />
-      </ViewportProvider>
-    </MediaProvider>
+        <MediaProvider>
+          <ViewportProvider>{children}</ViewportProvider>
+        </MediaProvider>
+      </CacheProvider>
+    </React.StrictMode>
   )
 }

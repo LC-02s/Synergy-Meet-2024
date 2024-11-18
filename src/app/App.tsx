@@ -1,17 +1,24 @@
+import type { EmotionCache } from '@emotion/cache'
 import { Header, Dock } from '@/widget/header'
 import { Intro } from '@/widget/intro'
 import { Keyword } from '@/widget/keyword'
 import { Footer } from '@/widget/footer'
+import { OverlayViewer } from '@/shared/hooks'
 import Provider from './Provider'
 
-export default function App() {
+interface ApplicationProps {
+  cache: EmotionCache
+}
+
+export default function App({ cache }: ApplicationProps) {
   return (
-    <Provider>
+    <Provider cache={cache}>
       <Header />
       <Intro />
       <Keyword />
       <Dock />
       <Footer />
+      <OverlayViewer />
     </Provider>
   )
 }
