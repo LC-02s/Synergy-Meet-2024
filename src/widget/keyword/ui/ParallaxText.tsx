@@ -88,7 +88,7 @@ export default function ParallaxText({
     const min = wrapperWidth / TEXT_REPEAT
     const max = wrapperWidth / (TEXT_REPEAT / 2)
 
-    return `-${wrap({ min, max, value })}px`
+    return `-${wrap({ min, max, value }) || 0}px`
   })
 
   useAnimationFrame((_, delta) => {
