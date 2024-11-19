@@ -4,12 +4,12 @@ import { formatDeadline } from '@/shared/utils'
 import ParallaxText from './ParallaxText'
 
 const keywordStyle = css`
-  padding: 10rem 0rem;
+  padding: 6rem 0rem 10rem;
   @media ${$variable.breakpoint.lg} {
-    padding: 8rem 0rem;
+    padding: 5rem 0rem 8rem;
   }
   @media ${$variable.breakpoint.sm} {
-    padding: 6rem 0rem;
+    padding: 4rem 0rem 6rem;
   }
   & > div:first-of-type {
     transform: rotate(-1.6deg);

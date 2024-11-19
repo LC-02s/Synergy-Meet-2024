@@ -49,11 +49,11 @@ export default function Header() {
           <Menu.Item href="#coc" title="참여 전 필독 바로가기">
             참여 전 필독
           </Menu.Item>
-          <Menu.Item href="#faq" title="자주하는 질문 바로가기">
-            자주하는 질문
-          </Menu.Item>
           <Menu.Item href="#map" title="오시는 길 바로가기">
             오시는 길
+          </Menu.Item>
+          <Menu.Item href="#faq" title="자주하는 질문 바로가기">
+            자주 받는 질문
           </Menu.Item>
           <MenuItemXS />
         </Menu>
