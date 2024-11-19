@@ -85,15 +85,15 @@ export default function Dock() {
         <motion.section
           id="dock"
           initial={{
-            transform: 'translateY(36%)',
+            y: '36%',
             opacity: 0,
           }}
           animate={{
-            transform: 'translateY(0%)',
+            y: '0%',
             opacity: 1,
           }}
           exit={{
-            transform: 'translateY(36%)',
+            y: '36%',
             opacity: 0,
           }}
           transition={{ ease: 'easeInOut', duration: 0.16 }}
