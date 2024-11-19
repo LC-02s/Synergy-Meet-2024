@@ -12,6 +12,7 @@ const topButtonStyle = css`
   border: 1px solid ${$variable.color.floatingBoxBorder};
   border-radius: 50%;
   background-color: ${$variable.color.floatingBoxBackground};
+  backdrop-filter: blur(4px) saturate(120%);
   cursor: pointer;
   pointer-events: all;
   @media ${$variable.breakpoint.xl} {
@@ -20,6 +21,7 @@ const topButtonStyle = css`
     font-size: 1.75rem;
     border: none;
     background-color: transparent;
+    backdrop-filter: initial;
   }
   @media ${$variable.breakpoint.md} {
     width: 1.5rem;
