@@ -31,9 +31,6 @@ export const introTitleStyle = css`
   align-items: center;
   transform: translateY(-80%);
   transition: all 0.2s ease-in-out;
-  &.hidden {
-    display: none;
-  }
   @media ${$variable.breakpoint.lg} {
     top: 48%;
   }
@@ -51,8 +48,6 @@ export const introTitleStyle = css`
     line-height: ${$variable.leading.normal};
     white-space: nowrap;
     text-transform: uppercase;
-    opacity: var(--opacity);
-    transform: translateY(var(--translateY));
     @supports (-webkit-text-stroke: 1px #fff) {
       color: rgba(255, 255, 255, 0.36);
       -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
