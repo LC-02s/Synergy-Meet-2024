@@ -25,7 +25,7 @@ export default function Keyword() {
     <section id="keyword" css={keywordStyle}>
       <ParallaxText baseVelocity={80}>2024 SYNERGY MEET</ParallaxText>
       <ParallaxText baseVelocity={-80}>
-        GOORM-SQUARE &nbsp; {formatDeadline(DEADLINE)} 13:30&nbsp;
+        GOORM-SQUARE &nbsp; {formatDeadline(DEADLINE)} 13:30 ~ 18:00&nbsp;
       </ParallaxText>
     </section>
   )
