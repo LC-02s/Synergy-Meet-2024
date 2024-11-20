@@ -9,6 +9,7 @@ export default function FormLink() {
   return (
     <a
       href={FORM_LINK}
+      title={`새창이동: 참가 신청하러 가기${isTimesUp ? ' (마감됨)' : ''}`}
       target="_blank"
       rel="noreferrer"
       onClick={(e) => {
