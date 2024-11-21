@@ -1,8 +1,7 @@
-import React from 'react'
 import { type MotionValue, motion, useTransform } from 'motion/react'
 import { computePartProgress, formatDeadline } from '@/shared/utils'
 import { ADDRESS, DEADLINE } from '@/shared/constants'
-import { Icon } from '@/shared/ui'
+import { Break, Icon } from '@/shared/ui'
 import { scrollGuideStyle } from './Intro.style'
 
 interface ScrollGuideProps {
@@ -35,12 +34,7 @@ export default function ScrollGuide({ scrollYProgress }: ScrollGuideProps) {
     >
       <strong>{formatDeadline(DEADLINE)}</strong>
       <span>
-        {ADDRESS.split('\n').map((separated) => (
-          <React.Fragment key={separated}>
-            {separated}
-            <br />
-          </React.Fragment>
-        ))}
+        <Break>{ADDRESS}</Break>
       </span>
       <Icon.AltArrowDown />
     </motion.p>

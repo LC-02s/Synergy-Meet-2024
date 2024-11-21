@@ -1,7 +1,6 @@
-import React from 'react'
 import { css } from '@emotion/react'
 import { $variable, ADDRESS } from '@/shared/constants'
-import { HiddenText, Icon } from '@/shared/ui'
+import { Break, HiddenText, Icon } from '@/shared/ui'
 import { COPYRIGHT } from '../constants'
 
 const footerStyle = css`
@@ -112,12 +111,7 @@ export default function Footer() {
             </li>
           </ul>
           <address>
-            {ADDRESS.split('\n').map((separated) => (
-              <React.Fragment key={separated}>
-                {separated}
-                <br />
-              </React.Fragment>
-            ))}
+            <Break>{ADDRESS}</Break>
           </address>
         </div>
         <p>&copy; {COPYRIGHT}</p>
