@@ -85,7 +85,7 @@ export const toolbarStyle = css`
     right: 0.75rem;
   }
   @media ${$variable.breakpoint.xs} {
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem 0.5rem;
   }
   & > p {
     position: relative;
@@ -104,6 +104,9 @@ export const toolbarStyle = css`
     @media ${$variable.breakpoint.sm} {
       padding: 0.25rem 0.5rem 0rem 1.75rem;
       font-size: ${$variable.font.size200};
+    }
+    @media ${$variable.breakpoint.xs} {
+      margin: 0rem 0rem 1.25rem;
     }
     & > br {
       display: none;

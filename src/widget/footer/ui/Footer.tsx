@@ -76,6 +76,9 @@ const footerStyle = css`
           @media ${$variable.breakpoint.md} {
             display: block;
           }
+          @media ${$variable.breakpoint.xs} {
+            display: none;
+          }
         }
       }
     }
