@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { $variable, DEADLINE } from '@/shared/constants'
+import { $variable, DEADLINE, DURATION_OF_TIME } from '@/shared/constants'
 import { formatDeadline } from '@/shared/utils'
 import ParallaxText from './ParallaxText'
 
@@ -25,7 +25,7 @@ export default function Keyword() {
     <section id="keyword" css={keywordStyle}>
       <ParallaxText baseVelocity={80}>2024 SYNERGY MEET</ParallaxText>
       <ParallaxText baseVelocity={-80}>
-        GOORM-SQUARE &nbsp; {formatDeadline(DEADLINE)} 13:30 ~ 18:00&nbsp;
+        GOORM-SQUARE &nbsp; {formatDeadline(DEADLINE)} {DURATION_OF_TIME.join(' ~ ')}&nbsp;
       </ParallaxText>
     </section>
   )
