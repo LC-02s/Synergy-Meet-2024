@@ -24,7 +24,7 @@ export default function ToolBar({ isDisabled, toggleDisabled }: ToolBarProps) {
     >
       <p>
         <Icon.MapPoint />
-        <Break>{ADDRESS}</Break>
+        <Break value={ADDRESS} />
       </p>
       <div>
         <Button

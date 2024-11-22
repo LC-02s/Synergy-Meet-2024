@@ -111,7 +111,7 @@ export default function Footer() {
             </li>
           </ul>
           <address>
-            <Break>{ADDRESS}</Break>
+            <Break value={ADDRESS} />
           </address>
         </div>
         <p>&copy; {COPYRIGHT}</p>

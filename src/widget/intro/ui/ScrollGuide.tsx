@@ -34,7 +34,7 @@ export default function ScrollGuide({ scrollYProgress }: ScrollGuideProps) {
     >
       <strong>{formatDeadline(DEADLINE)}</strong>
       <span>
-        <Break>{ADDRESS}</Break>
+        <Break value={ADDRESS} />
       </span>
       <Icon.AltArrowDown />
     </motion.p>
