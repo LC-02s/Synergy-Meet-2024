@@ -216,7 +216,7 @@ const buttonVariants = {
       gray: {
         default: {
           color: $variable.color.gray700,
-          border: $variable.color.gray100,
+          border: $variable.color.gray000,
           background: $variable.color.gray000,
         },
         active: {
