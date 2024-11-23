@@ -23,7 +23,7 @@ const faqStyle = css`
       padding: 0rem 1.25rem;
       font-size: ${$variable.font.size600};
     }
-    @media ${$variable.breakpoint.sm} {
+    @media ${$variable.breakpoint.xs} {
       font-size: ${$variable.font.size500};
     }
   }

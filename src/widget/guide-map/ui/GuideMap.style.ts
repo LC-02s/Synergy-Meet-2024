@@ -45,7 +45,7 @@ export const mapContainerStyle = css`
       margin: 1rem 0rem 2rem;
       font-size: ${$variable.font.size600};
     }
-    @media ${$variable.breakpoint.sm} {
+    @media ${$variable.breakpoint.xs} {
       font-size: ${$variable.font.size500};
     }
   }

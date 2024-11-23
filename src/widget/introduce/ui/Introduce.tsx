@@ -3,6 +3,7 @@ import { $variable } from '@/shared/constants'
 import FormLink from './FormLink'
 
 const introduceStyle = css`
+  position: relative;
   padding: 0rem 2.5rem 12rem;
   @media ${$variable.breakpoint.md} {
     padding: 0rem 2.5rem 10rem;
@@ -24,6 +25,9 @@ const introduceStyle = css`
     }
     @media ${$variable.breakpoint.md} {
       margin: 0rem 0rem 1.5rem;
+      font-size: ${$variable.font.size700};
+    }
+    @media ${$variable.breakpoint.xs} {
       font-size: ${$variable.font.size600};
     }
   }
