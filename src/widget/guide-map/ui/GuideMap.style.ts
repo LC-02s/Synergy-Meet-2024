@@ -186,7 +186,7 @@ export const imageGridStyle = css`
   @media ${$variable.breakpoint.md} {
     display: block;
   }
-  & > div {
+  & > li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,7 +207,7 @@ export const imageGridStyle = css`
       max-height: 20rem;
       height: 36vw;
     }
-    & + div {
+    & + li {
       @media ${$variable.breakpoint.md} {
         margin: 1rem 0rem 0rem;
       }
