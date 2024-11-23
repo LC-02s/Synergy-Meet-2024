@@ -28,6 +28,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      swiper:
+        specifier: ^11.1.15
+        version: 11.1.15
       zustand:
         specifier: 5.0.0-rc.2
         version: 5.0.0-rc.2(@types/react@18.3.5)(react@18.3.1)
@@ -3311,6 +3314,13 @@ packages:
       }
     engines: { node: '>= 0.4' }
 
+  swiper@11.1.15:
+    resolution:
+      {
+        integrity: sha512-IzWeU34WwC7gbhjKsjkImTuCRf+lRbO6cnxMGs88iVNKDwV+xQpBCJxZ4bNH6gSrIbbyVJ1kuGzo3JTtz//CBw==,
+      }
+    engines: { node: '>= 4.7.0' }
+
   synckit@0.9.1:
     resolution:
       {
@@ -5667,6 +5677,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@11.1.15: {}
 
   synckit@0.9.1:
     dependencies:
