@@ -2,12 +2,15 @@ import React from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useBooleanState, useBreakpoint, useOutsideClick } from '@/shared/hooks'
 import { HiddenText } from '@/shared/ui'
+import { scrollToSectionFactor } from '../utils'
 import { menuItemStyle, menuRootStyle, menuRootStyleMd } from './Menu.style'
 
-function MenuItem(props: JSX.IntrinsicElements['a']) {
+function MenuItem({ href, onClick, ...props }: JSX.IntrinsicElements['a'] & { href: string }) {
   return (
     <li css={menuItemStyle}>
-      <a {...props}>{props.children}</a>
+      <a {...props} href={href} onClick={scrollToSectionFactor(href, onClick)}>
+        {props.children}
+      </a>
     </li>
   )
 }
