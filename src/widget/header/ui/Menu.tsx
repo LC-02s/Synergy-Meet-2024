@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { useBooleanState, useBreakpoint, useOutsideClick } from '@/shared/hooks'
 import { HiddenText } from '@/shared/ui'
 import { scrollToSectionFactor } from '../utils'
-import { menuItemStyle, menuRootStyle, menuRootStyleMd } from './Menu.style'
+import { menuItemStyle, menuStyle, menuMobileStyle } from './Menu.style'
 
 function MenuItem({ href, onClick, ...props }: JSX.IntrinsicElements['a'] & { href: string }) {
   return (
@@ -22,7 +22,7 @@ function MenuMobile({ children }: React.PropsWithChildren) {
   React.useEffect(() => close, [close])
 
   return (
-    <div ref={containerRef} css={menuRootStyleMd}>
+    <div ref={containerRef} css={menuMobileStyle}>
       <button type="button" title={isOpen ? '메뉴 닫기' : '메뉴 열기'} onClick={toggle}>
         <p className={isOpen ? 'open' : ''}>
           <span />
@@ -67,7 +67,7 @@ function MenuRoot({ children }: React.PropsWithChildren) {
 
   return (
     <nav>
-      <ul css={menuRootStyle}>{children}</ul>
+      <ul css={menuStyle}>{children}</ul>
     </nav>
   )
 }

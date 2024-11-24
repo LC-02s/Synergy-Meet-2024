@@ -32,7 +32,7 @@ export const menuItemStyle = css`
   }
 `
 
-export const menuRootStyle = css`
+export const menuStyle = css`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -41,7 +41,7 @@ export const menuRootStyle = css`
   }
 `
 
-export const menuRootStyleMd = css`
+export const menuMobileStyle = css`
   position: relative;
   z-index: 99999;
   & > button {
