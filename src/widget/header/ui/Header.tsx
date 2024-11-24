@@ -20,7 +20,7 @@ function HeaderRight() {
   )
 }
 
-function MenuItemXS() {
+function LastOfMenuItem() {
   const xs = useBreakpoint('xs')
 
   if (!xs) {
@@ -55,7 +55,7 @@ export default function Header() {
           <Menu.Item href="#faq" title="자주하는 질문 바로가기">
             자주 받는 질문
           </Menu.Item>
-          <MenuItemXS />
+          <LastOfMenuItem />
         </Menu>
       </div>
       <HeaderRight />
