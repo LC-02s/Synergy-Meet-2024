@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { useBooleanState, useBreakpoint } from '@/shared/hooks'
-import { extractEmotionClassName } from '@/shared/utils'
 import { Icon } from '@/shared/ui'
 import { imageGridStyle } from './GuideMap.style'
 
@@ -17,7 +16,6 @@ function ImageGridMobile() {
 
   return (
     <Swiper
-      className={extractEmotionClassName(imageGridStyle)}
       wrapperTag="ul"
       modules={[Autoplay]}
       autoplay={{ delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true }}
@@ -30,6 +28,7 @@ function ImageGridMobile() {
         swiper.autoplay.pause()
         pause()
       }}
+      css={imageGridStyle}
       loop
     >
       {[3, 1, 2].map((id) => (

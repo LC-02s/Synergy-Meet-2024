@@ -4,7 +4,6 @@ import { type SwiperProps, Swiper as SwiperWrapper, SwiperSlide } from 'swiper/r
 import { Autoplay } from 'swiper/modules'
 import { motion } from 'motion/react'
 import { useBreakpoint } from '@/shared/hooks'
-import { extractEmotionClassName } from '@/shared/utils'
 import { Button, Icon } from '@/shared/ui'
 import { SESSION_LIST } from '../constants'
 import { sessionStyle, sessionTitleStyle, sessionWrapperStyle } from './Introduce.style'
@@ -27,13 +26,13 @@ function wrapperFactor(props: SwiperProps) {
 
     return (
       <SwiperWrapper
-        className={extractEmotionClassName(sessionWrapperStyle)}
         wrapperTag="ul"
         modules={[Autoplay]}
         autoplay={{ delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true }}
         slidesPerView="auto"
         spaceBetween={20}
         loop
+        css={sessionWrapperStyle}
         {...props}
       >
         {children}
