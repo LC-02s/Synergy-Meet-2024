@@ -6,7 +6,7 @@ import { motion } from 'motion/react'
 import { useBreakpoint } from '@/shared/hooks'
 import { Button, Icon } from '@/shared/ui'
 import { SESSION_LIST } from '../constants'
-import { sessionStyle, sessionTitleStyle, sessionWrapperStyle } from './Introduce.style'
+import { sessionStyle, sessionTitleStyle, sessionWrapperStyle } from './Session.style'
 import PlayPauseButton from './PlayPauseButton'
 import SessionContent from './SessionContent'
 
