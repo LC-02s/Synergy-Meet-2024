@@ -179,49 +179,99 @@ export const toolbarStyle = css`
 `
 
 export const imageGridStyle = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0rem 0rem;
   @media ${$variable.breakpoint.md} {
-    display: block;
-  }
-  & > li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(100% / 3 - 2rem / 3);
-    height: 16rem;
-    border-radius: 1rem;
+    position: relative;
+    min-height: 10rem;
+    max-height: 16rem;
+    height: 42vw;
+    margin: 1rem 0rem 0rem;
     overflow: hidden;
-    background-color: ${$variable.color.gray800};
-    @media ${$variable.breakpoint.xl} {
-      height: 12rem;
-    }
-    @media ${$variable.breakpoint.lg} {
-      height: 10rem;
-    }
+    border-radius: 1rem;
+  }
+  & > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0rem 0rem;
     @media ${$variable.breakpoint.md} {
-      width: 100%;
-      min-height: 10rem;
-      max-height: 20rem;
-      height: 36vw;
+      margin: 0rem;
     }
-    & + li {
+    & > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% / 3 - 2rem / 3);
+      height: 16rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: ${$variable.color.gray800};
+      @media ${$variable.breakpoint.xl} {
+        height: 12rem;
+      }
+      @media ${$variable.breakpoint.lg} {
+        height: 10rem;
+      }
       @media ${$variable.breakpoint.md} {
-        margin: 1rem 0rem 0rem;
+        width: 100%;
+        height: 100%;
+        border-radius: 0rem;
+      }
+      & + li {
+        @media ${$variable.breakpoint.md} {
+          margin: 0rem;
+        }
+      }
+      & > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease-in-out;
+        transform: scale(1);
+        &:hover {
+          transform: scale(1.1);
+          @media ${$variable.breakpoint.md} {
+            transform: scale(1);
+          }
+        }
       }
     }
-    & > img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.2s ease-in-out;
-      transform: scale(1);
-      &:hover {
-        transform: scale(1.1);
-      }
+  }
+  & > button {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.75rem;
+    font-size: ${$variable.font.size500};
+    border-radius: 50%;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px) saturate(120%);
+    transform: translate(-50%, -50%);
+    &.play {
+      animation: play 0.8s forwards;
+    }
+    &.pause {
+      animation: pause 0.2s forwards;
+    }
+  }
+  @keyframes play {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes pause {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 `
