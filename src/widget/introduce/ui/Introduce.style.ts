@@ -1,20 +1,104 @@
-import React from 'react'
-import type { Swiper } from 'swiper/types'
-import { type SwiperProps, Swiper as SwiperWrapper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
-import { motion } from 'motion/react'
 import { css } from '@emotion/react'
 import { $variable } from '@/shared/constants'
-import { useBooleanState, useBreakpoint } from '@/shared/hooks'
-import { Button, Icon } from '@/shared/ui'
 import { SESSION_LIST } from '../constants'
 
-import 'swiper/css'
+export const introduceSectionStyle = css`
+  position: relative;
+  padding: 6rem 0rem 8rem;
+`
 
-const sessionStyle = css`
+export const introduceStyle = css`
+  position: relative;
+  margin: 0rem 0rem 12rem;
+  padding: 0rem 2.5rem;
+  @media ${$variable.breakpoint.xl} {
+    margin: 0rem 0rem 10rem;
+  }
+  @media ${$variable.breakpoint.md} {
+    margin: 0rem 0rem 8rem;
+  }
+  @media ${$variable.breakpoint.sm} {
+    padding: 0rem 1.25rem;
+  }
+  & > h2 {
+    margin: 0rem 0rem 3rem;
+    font-size: ${$variable.font.size900};
+    font-weight: ${$variable.font.bold};
+    color: ${$variable.color.gray000};
+    text-align: center;
+    line-height: ${$variable.leading.normal};
+    white-space: nowrap;
+    @media ${$variable.breakpoint.xl} {
+      margin: 0rem 0rem 2rem;
+      font-size: ${$variable.font.size800};
+    }
+    @media ${$variable.breakpoint.md} {
+      margin: 0rem 0rem 1.5rem;
+      font-size: ${$variable.font.size700};
+    }
+    @media ${$variable.breakpoint.xs} {
+      font-size: ${$variable.font.size600};
+    }
+  }
+  & > p {
+    font-size: ${$variable.font.size600};
+    font-weight: ${$variable.font.regular};
+    color: ${$variable.color.gray100};
+    text-align: center;
+    line-height: ${$variable.leading.relaxed};
+    word-break: keep-all;
+    @media ${$variable.breakpoint.xl} {
+      font-size: ${$variable.font.size500};
+    }
+    @media ${$variable.breakpoint.md} {
+      font-size: ${$variable.font.size400};
+    }
+    @media ${$variable.breakpoint.sm} {
+      font-size: ${$variable.font.size300};
+    }
+    & > br {
+      @media ${$variable.breakpoint.md} {
+        display: none;
+      }
+    }
+  }
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4.75rem 0rem 0rem;
+    @media ${$variable.breakpoint.xl} {
+      margin: 3.25rem 0rem 0rem;
+    }
+    @media ${$variable.breakpoint.sm} {
+      margin: 2.25rem 0rem 0rem;
+    }
+    & > a > span {
+      display: block;
+      padding: 0.625rem 1.25rem 0.5rem;
+      font-size: ${$variable.font.size500};
+      font-weight: inherit;
+      color: inherit;
+      line-height: ${$variable.leading.normal};
+      white-space: nowrap;
+      @media ${$variable.breakpoint.xl} {
+        padding: 0.5rem 1.25rem;
+        font-size: ${$variable.font.size400};
+      }
+      @media ${$variable.breakpoint.md} {
+        padding: 0.5rem 0.75rem;
+      }
+      @media ${$variable.breakpoint.sm} {
+        padding: 0.25rem 0.75rem;
+        font-size: ${$variable.font.size300};
+      }
+    }
+  }
+`
+
+export const sessionStyle = css`
   position: relative;
   display: flex;
-  padding: 0rem 0rem 5rem;
   @media ${$variable.breakpoint.xl} {
     display: block;
   }
@@ -173,144 +257,3 @@ const sessionStyle = css`
     }
   }
 `
-
-function MobileWrapper({ children }: React.PropsWithChildren) {
-  return (
-    <div className="wrapper">
-      <ul>{children}</ul>
-    </div>
-  )
-}
-
-function wrapperFactor(props: SwiperProps) {
-  return ({ children }: React.PropsWithChildren) => {
-    const xl = useBreakpoint('xl')
-
-    return (
-      <SwiperWrapper
-        className="wrapper"
-        wrapperTag="ul"
-        modules={[Autoplay]}
-        autoplay={{ delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true }}
-        slidesPerView="auto"
-        spaceBetween={20}
-        loop
-        {...props}
-      >
-        {children}
-        {!xl && children}
-      </SwiperWrapper>
-    )
-  }
-}
-
-function PlayPauseButton({
-  clickHandler,
-  ...props
-}: React.ComponentProps<typeof Button> & {
-  clickHandler: (player: { play: () => void; pause: () => void }) => void
-}) {
-  const [isPlay, { setTrue: play, setFalse: pause }] = useBooleanState(true)
-  const IconComponent = isPlay ? Icon.PauseBold : Icon.PlayBold
-  const handleClick = React.useCallback(() => {
-    clickHandler?.({ play, pause })
-  }, [clickHandler, play, pause])
-
-  return (
-    <Button {...props} title={`슬라이드 ${isPlay ? '멈춤' : '재생'}`} onClick={handleClick}>
-      <IconComponent />
-    </Button>
-  )
-}
-
-function SessionContent({ title, author, type, tag }: (typeof SESSION_LIST)[number]) {
-  return (
-    <>
-      <h4>
-        <span>{`[${type}] ${author}`}&nbsp;&nbsp;</span>
-        {title}
-      </h4>
-      <ul>
-        {tag.map(({ keyword, color }) => (
-          <li key={keyword} style={{ backgroundColor: $variable.color[color] }}>
-            #{keyword}
-          </li>
-        ))}
-      </ul>
-    </>
-  )
-}
-
-export default function Session() {
-  const swiperRef = React.useRef<Swiper | null>(null)
-
-  const sm = useBreakpoint('sm')
-  const Wrapper = !sm
-    ? wrapperFactor({ onSwiper: (swiper) => (swiperRef.current = swiper) })
-    : MobileWrapper
-
-  const slidePrev = React.useCallback(() => {
-    const swiper = swiperRef.current
-    swiper?.slidePrev()
-  }, [])
-
-  const slideNext = React.useCallback(() => {
-    const swiper = swiperRef.current
-    swiper?.slideNext()
-  }, [])
-
-  const autoplayHandler = React.useCallback((player: { play: () => void; pause: () => void }) => {
-    const swiper = swiperRef.current
-
-    if (!swiper?.autoplay) return
-
-    if (swiper.autoplay.paused) {
-      swiper.autoplay.resume()
-      player.play()
-      return
-    }
-
-    swiper.autoplay.pause()
-    player.pause()
-  }, [])
-
-  return (
-    <section id="session" css={sessionStyle}>
-      <div className="title">
-        <h3>
-          세션 소개&nbsp;
-          <span>{sm ? `총 ${SESSION_LIST.length}개` : `(${SESSION_LIST.length})`}</span>
-        </h3>
-        {!sm && (
-          <p>
-            <Button title="이전 슬라이드" variant="subtle" size="lg" square onClick={slidePrev}>
-              <Icon.AltArrowLeftBold />
-            </Button>
-            <Button title="다음 슬라이드" variant="subtle" size="lg" square onClick={slideNext}>
-              <Icon.AltArrowRightBold />
-            </Button>
-            <PlayPauseButton variant="subtle" size="lg" square clickHandler={autoplayHandler} />
-          </p>
-        )}
-      </div>
-      <Wrapper>
-        {SESSION_LIST.map((session, idx) =>
-          sm ? (
-            <motion.li
-              key={session.title}
-              initial={{ y: '30%', opacity: 0 }}
-              animate={{ y: '0%', opacity: 1 }}
-              transition={{ ease: 'easeInOut', duration: 0.16, delay: 0.1 * idx }}
-            >
-              <SessionContent {...session} />
-            </motion.li>
-          ) : (
-            <SwiperSlide key={session.title} tag="li">
-              <SessionContent {...session} />
-            </SwiperSlide>
-          ),
-        )}
-      </Wrapper>
-    </section>
-  )
-}
