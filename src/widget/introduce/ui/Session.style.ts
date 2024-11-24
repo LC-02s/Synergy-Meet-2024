@@ -133,6 +133,7 @@ export const sessionWrapperStyle = css`
         & > span {
           display: block;
           margin: 0rem 0rem 1rem;
+          padding: 0rem 0.125rem;
           font-size: ${$variable.font.size300};
           font-weight: ${$variable.font.regular};
           color: ${$variable.color.gray100};
