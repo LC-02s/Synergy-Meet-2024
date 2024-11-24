@@ -11,8 +11,10 @@ export function scrollToSectionFactor(
   href: string,
   handler?: React.MouseEventHandler<HTMLAnchorElement>,
 ) {
+  const isHash = !!href && href.startsWith('#')
+
   return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (href && href.startsWith('#')) {
+    if (isHash) {
       event.preventDefault()
       scrollToSection(href)
     }
