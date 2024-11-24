@@ -5,19 +5,7 @@ export const introStyle = css`
   position: relative;
   width: 100%;
   height: 400vh;
-  margin: 0rem 0rem -24vw;
-  @media ${$variable.breakpoint.xl} {
-    margin: 0rem 0rem -36vw;
-  }
-  @media ${$variable.breakpoint.lg} {
-    margin: 0rem 0rem -48vw;
-  }
-  @media ${$variable.breakpoint.md} {
-    margin: 0rem 0rem -64vw;
-  }
-  @media ${$variable.breakpoint.sm} {
-    margin: 0rem 0rem -86vw;
-  }
+  margin: 0rem 0rem -54vh;
 `
 
 export const introTitleStyle = css`
