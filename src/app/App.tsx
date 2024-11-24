@@ -2,6 +2,7 @@ import type { EmotionCache } from '@emotion/cache'
 import { Header, Dock } from '@/widget/header'
 import { Intro } from '@/widget/intro'
 import { Introduce } from '@/widget/introduce'
+import { Session } from '@/widget/session'
 import { GuideMap } from '@/widget/guide-map'
 import { FrequentlyAskedQuestions as FAQuestions } from '@/widget/frequently-asked-questions'
 import { Keyword } from '@/widget/keyword'
@@ -19,6 +20,7 @@ export default function App({ cache }: ApplicationProps) {
       <Header />
       <Intro />
       <Introduce />
+      <Session />
       <GuideMap />
       <FAQuestions />
       <Keyword />
