@@ -4,9 +4,10 @@ import { type SwiperProps, Swiper as SwiperWrapper, SwiperSlide } from 'swiper/r
 import { Autoplay } from 'swiper/modules'
 import { motion } from 'motion/react'
 import { useBreakpoint } from '@/shared/hooks'
+import { extractEmotionClassName } from '@/shared/utils'
 import { Button, Icon } from '@/shared/ui'
 import { SESSION_LIST } from '../constants'
-import { sessionStyle } from './Introduce.style'
+import { sessionStyle, sessionTitleStyle, sessionWrapperStyle } from './Introduce.style'
 import PlayPauseButton from './PlayPauseButton'
 import SessionContent from './SessionContent'
 
@@ -14,7 +15,7 @@ import 'swiper/css'
 
 function MobileWrapper({ children }: React.PropsWithChildren) {
   return (
-    <div className="wrapper">
+    <div css={sessionWrapperStyle}>
       <ul>{children}</ul>
     </div>
   )
@@ -26,7 +27,7 @@ function wrapperFactor(props: SwiperProps) {
 
     return (
       <SwiperWrapper
-        className="wrapper"
+        className={extractEmotionClassName(sessionWrapperStyle)}
         wrapperTag="ul"
         modules={[Autoplay]}
         autoplay={{ delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true }}
@@ -77,7 +78,7 @@ export default function Session() {
 
   return (
     <div css={sessionStyle}>
-      <div className="title">
+      <div css={sessionTitleStyle}>
         <h3>
           세션 소개&nbsp;
           <span>{sm ? `총 ${SESSION_LIST.length}개` : `(${SESSION_LIST.length})`}</span>
