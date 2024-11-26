@@ -19,11 +19,25 @@ export default function IntroVideo({ scrollYProgress }: IntroVideoProps) {
   useMotionValueEvent(videoContainerProgress, 'change', (progress) => {
     const videoEl = videoRef.current
     videoEl?.[progress === 1 ? 'pause' : 'play']()
+
+    // requestAnimationFrame(() => {
+    //   videoEl.currentTime = videoEl.duration * progress
+    // })
   })
+
+  React.useEffect(() => {
+    const videoEl = videoRef.current
+    const currentProgress = scrollYProgress.get()
+
+    videoEl?.[currentProgress >= 1 ? 'pause' : 'play']()
+  }, [scrollYProgress])
 
   return (
     <motion.div css={introVideoStyle} style={{ opacity: videoContainerOpacity }}>
-      <video ref={videoRef} src="/video/intro.mp4" autoPlay loop muted />
+      <video ref={videoRef} autoPlay loop muted>
+        <source src="/video/intro.webm" type="video/webm" />
+        <source src="/video/intro.mp4" type="video/mp4" />
+      </video>
     </motion.div>
   )
 }
