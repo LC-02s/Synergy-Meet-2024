@@ -137,7 +137,7 @@ export default function QuestionList() {
           initial={{ y: '30%', opacity: 0 }}
           whileInView={{ y: '0%', opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 0.16, delay: 0.1 * idx }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-12%' }}
         >
           <QuestionItem question={question} answer={answer} selectedState={selectedState} />
         </motion.li>
