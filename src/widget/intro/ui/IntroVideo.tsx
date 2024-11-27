@@ -9,31 +9,28 @@ interface IntroVideoProps {
 
 export default function IntroVideo({ scrollYProgress }: IntroVideoProps) {
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
-  const videoContainerProgress = useTransform(scrollYProgress, (progress) => {
+
+  const videoFadeOutProgress = useTransform(scrollYProgress, (progress) => {
     return computePartProgress({ progress, start: 0.75, end: 1 })
   })
-  const videoContainerOpacity = useTransform(videoContainerProgress, (progress) => {
+  const videoOpacity = useTransform(videoFadeOutProgress, (progress) => {
     return 1 - progress
   })
 
-  useMotionValueEvent(videoContainerProgress, 'change', (progress) => {
-    const videoEl = videoRef.current
-    videoEl?.[progress === 1 ? 'pause' : 'play']()
-
-    // requestAnimationFrame(() => {
-    //   videoEl.currentTime = videoEl.duration * progress
-    // })
+  const videoDarknessProgress = useTransform(scrollYProgress, (progress) => {
+    return computePartProgress({ progress, start: 0, end: 0.4 })
+  })
+  const videoBrightness = useTransform(videoDarknessProgress, (progress) => {
+    return `brightness(${100 - progress * 40}%)`
   })
 
-  React.useEffect(() => {
+  useMotionValueEvent(scrollYProgress, 'change', (progress) => {
     const videoEl = videoRef.current
-    const currentProgress = scrollYProgress.get()
-
-    videoEl?.[currentProgress >= 1 ? 'pause' : 'play']()
-  }, [scrollYProgress])
+    videoEl?.[progress === 1 ? 'pause' : 'play']()
+  })
 
   return (
-    <motion.div css={introVideoStyle} style={{ opacity: videoContainerOpacity }}>
+    <motion.div css={introVideoStyle} style={{ opacity: videoOpacity, filter: videoBrightness }}>
       <video ref={videoRef} autoPlay loop muted>
         <source src="/video/intro.webm" type="video/webm" />
         <source src="/video/intro.mp4" type="video/mp4" />
