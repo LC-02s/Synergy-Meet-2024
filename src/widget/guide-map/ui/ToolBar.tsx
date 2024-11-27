@@ -18,7 +18,7 @@ export default function ToolBar({ isDisabled, toggleDisabled }: ToolBarProps) {
     <motion.div
       initial={{ y: '-48%', opacity: 0 }}
       whileInView={{ y: '0%', opacity: 1 }}
-      transition={{ ease: 'easeInOut', duration: 0.2, delay: 0.4 }}
+      transition={{ ease: 'easeInOut', duration: 0.2, delay: 0.3 }}
       viewport={{ once: true }}
       css={toolbarStyle}
     >
