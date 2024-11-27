@@ -19,7 +19,7 @@ export const timerStyle = css`
     font-size: ${$variable.font.size200};
   }
   @media ${$variable.breakpoint.xs} {
-    margin: 0.25rem 0rem 0rem;
+    margin: 0.5rem 0rem 0rem;
     text-align: center;
   }
 `
