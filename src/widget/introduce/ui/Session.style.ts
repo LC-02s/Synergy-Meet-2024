@@ -7,8 +7,13 @@ export const sessionStyle = css`
   display: flex;
   justify-content: center;
   align-items: stretch;
+  padding: 12rem 0rem 8rem;
   @media ${$variable.breakpoint.xl} {
     display: block;
+    padding: 10rem 0rem 8rem;
+  }
+  @media ${$variable.breakpoint.md} {
+    padding: 8rem 0rem;
   }
 `
 

@@ -1,23 +1,11 @@
 import { css } from '@emotion/react'
 import { $variable } from '@/shared/constants'
 
-export const introduceSectionStyle = css`
-  position: relative;
-  padding: 6rem 0rem 8rem;
-`
-
 export const introduceStyle = css`
   position: relative;
-  margin: 0rem 0rem 12rem;
-  padding: 0rem 2.5rem;
-  @media ${$variable.breakpoint.xl} {
-    margin: 0rem 0rem 10rem;
-  }
-  @media ${$variable.breakpoint.md} {
-    margin: 0rem 0rem 8rem;
-  }
+  padding: 8rem 2.5rem 0rem;
   @media ${$variable.breakpoint.sm} {
-    padding: 0rem 1.25rem;
+    padding: 8rem 1.25rem 0rem;
   }
   & > h2 {
     margin: 0rem 0rem 3rem;

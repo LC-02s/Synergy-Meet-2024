@@ -46,8 +46,8 @@ export default function Header() {
           <Menu.Item href="#introduce" title="밋업 소개 바로가기">
             밋업 소개
           </Menu.Item>
-          <Menu.Item href="#coc" title="참여 전 필독 바로가기">
-            참여 전 필독
+          <Menu.Item href="#session" title="세션 소개 바로가기">
+            세션 소개
           </Menu.Item>
           <Menu.Item href="#guide-map" title="오시는 길 바로가기">
             오시는 길

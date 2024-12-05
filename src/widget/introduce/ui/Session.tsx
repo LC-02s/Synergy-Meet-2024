@@ -76,7 +76,7 @@ export default function Session() {
   }, [])
 
   return (
-    <div css={sessionStyle}>
+    <section id="session" css={sessionStyle}>
       <div css={sessionTitleStyle}>
         <h3>
           세션 소개&nbsp;
@@ -112,6 +112,6 @@ export default function Session() {
           ),
         )}
       </Wrapper>
-    </div>
+    </section>
   )
 }
