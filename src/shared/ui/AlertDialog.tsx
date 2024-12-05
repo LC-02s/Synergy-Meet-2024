@@ -23,7 +23,7 @@ export default function AlertDialog({
         <p>{children}</p>
       </Dialog.Content>
       <Dialog.Footer>
-        <Button variant="light" onClick={close}>
+        <Button variant="light" onClick={onClose}>
           닫기
         </Button>
       </Dialog.Footer>
