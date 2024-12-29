@@ -54,7 +54,6 @@ const footerStyle = css`
             font-size: ${$variable.font.size800};
             color: ${$variable.color.gray400};
             transition: color 0.2s ease-in-out;
-            &:focus,
             &:hover,
             &:active {
               color: ${$variable.color.gray000};

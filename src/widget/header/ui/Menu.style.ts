@@ -21,7 +21,6 @@ export const menuItemStyle = css`
     white-space: nowrap;
     opacity: 0.6;
     transition: opacity 0.2s ease-in-out;
-    &:focus,
     &:hover,
     &:active {
       opacity: 1;

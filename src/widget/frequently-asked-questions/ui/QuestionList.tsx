@@ -37,7 +37,6 @@ const questionListStyle = css`
         border-radius: 0.75rem;
       }
       &.selected,
-      &:focus,
       &:hover,
       &:active {
         background-color: ${$variable.color.cyan800};

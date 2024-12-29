@@ -620,7 +620,6 @@ export const buttonCSS = css`
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  &:focus,
   &:hover,
   &:active {
     color: var(--button-color-active);
