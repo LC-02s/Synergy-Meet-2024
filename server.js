@@ -27,7 +27,7 @@ app.use('*', async (req, res) => {
     const url = req.originalUrl.replace(base, '')
     const template = await vite.transformIndexHtml(url, baseTemplate)
 
-    const rendered = await render(url)
+    const rendered = render(url)
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
