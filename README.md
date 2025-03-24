@@ -1,50 +1,122 @@
-# React + TypeScript + Vite
+# Synergy Meet 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![인트로](/public/img/synergy-meet-2024.jpg)
 
-Currently, two official plugins are available:
+- **배포 URL** : https://synergy-meet-2024.vercel.app/
+- **개발 기간** : 2024.09 ~ 2024.11
+- **기여도** : 100% (개인 프로젝트)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<br />
 
-## Expanding the ESLint configuration
+## 🚀 프로젝트 소개
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Synergy Meet 2024는 개발 분야 취업 준비생들끼리 모여 취업 준비 관련 정보를 공유하고, 각자가 진행했던 프로젝트를 토대로 세션 발표를 진행한 후 서로 피드백을 주고받으면서 함께 성장하기 위해 기획된 밋업 행사인 **시너지 밋 2024**의 모집 홍보용 랜딩 페이지입니다. 해당 프로젝트는 기획 단계에서 스폰서와의 협의에 실패하여 장소 대관을 하지 못해 행사가 무산된 관계로 후일을 기약하며 템플릿으로 남겨두었습니다.
 
-- Configure the top-level `parserOptions` property like this:
+<br />
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 시연 영상
+
+<video src="https://github.com/user-attachments/assets/bfb37858-8941-42ea-a495-f5710597873f"></video>
+
+<br />
+<br />
+
+## 📚 사용 기술
+
+<br />
+
+### React
+
+- 선언적으로 UI를 개발할 수 있고, 반복되는 UI들을 컴포넌트 단위로 분리하여 재사용하기 쉽다는 이점이 있어 도입하였습니다.
+
+<br />
+
+### TypeScript
+
+- 예상하지 못한 런타임 에러를 미연에 방지하여 사이트의 안정성을 보장하기 위해 도입하였습니다.
+
+<br />
+
+### Vite
+
+- 제공되는 `SSR` 템플릿을 활용하여 별도의 서버 없이 `SSG` 빌드 파이프라인 또한 쉽게 구축할 수 있을 것 같아 도입하였습니다.
+- 구축한 SSG 빌드 파이프라인 관련 글은 <a href="https://clein-dev.com/blog/simple-react-ssg-pipeline" title="간단한 리액트 SSG 빌드 파이프라인 구축하기 - Clein's Tech Blog">여기</a>에서 볼 수 있습니다.
+
+<br />
+
+### Zustand
+
+- `overlay` 요소나 반응형 `breakpoint` 같이 사이트를 구성하는 UI를 만드는데 필요한 최소한의 전역 상태관리에 사용하기 위해 도입하였습니다.
+- 개인적으로 `Redux`는 보일러플레이트 코드가 아쉽고, `Context API`는 최적화하기 번거로워 전역 상태관리에는 부적합하다고 생각합니다.
+
+<br />
+
+### Emotion
+
+- 기존에 사용해 보지는 않았지만 당시 익숙했던 `SCSS` 문법과 `SSR`을 지원했고, 인라인 스타일 방식으로도 활용할 수 있어 사용하기 편할 것 같아 도입하였습니다.
+- 개인적인 경험으로 `module CSS` 나 `SCSS` 같은 경우에는 스크립트와 함께 사용하기에는 아쉬운 느낌이 없지 않아 있고, `Styled Components`의 경우에는 매번 스타일을 위한 컴포넌트의 이름을 작명하는 것이 번거로웠으며, 작성한 이후에는 가독성 또한 좋지 않았습니다.
+- `Emotion`은 사용해 보니 인라인 스타일로 사용할 경우에는 가독성이 많이 떨어졌고, 변수를 따로 분리할 경우 클래스명이 변수명으로 변경되었을 뿐이지 결국 작명을 해야 하는 것은 동일했습니다. (이후부터 `TailWindCSS`로 정착하게 되었습니다.)
+
+<br />
+
+### Motion
+
+- 메인 키 비주얼을 구성하는 Scroll Linked Animation 기법을 쉽게 구현하기 위해 도입하였습니다.
+- 특별한 처리 없이도 컴포넌트 라이프 사이클에 맞춰 손쉽게 애니메이션을 구현할 수 있는 DX를 제공한다는 점 또한 매력적이었습니다.
+
+<br />
+
+### Express.js
+
+- 로컬 환경에서 개발 서버를 띄우기 위한 용도로 도입하였습니다.
+- 이전 버전에서는 HMR 시 변경사항이 조금씩 누락되는 문제가 있지만 `Vite` 최신 버전 부터는 별도의 옵션으로 지원되어 설치하지 않아도 됩니다.
+
+<br />
+
+### pnpm
+
+- 배포 파이프라인에서의 빌드 속도와 로컬 환경에서의 패키지 용량 관리를 위해 도입하였습니다.
+
+<br />
+<br />
+
+## 💼 실행 가이드
+
+<br />
+
+### 요구 환경
+
+- Node.js @^20
+- pnpm @9.1.0
+
+<br />
+
+### 환경 변수
+
+- `VITE_NAVER_CLIENT_ID`: 지도 API에 필요한 Naver Cloud Platform Client ID를 추가해주세요.
+
+<br />
+
+### 의존성 설치
+
+```base
+pnpm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<br />
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 개발 환경
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```base
+pnpm dev
 ```
+
+<br />
+
+### 빌드
+
+```base
+pnpm build
+```
+
+<br />
